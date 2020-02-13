@@ -14,7 +14,9 @@ Provides solid fundamentals for new system or subsystem.
 <a href='https://ko-fi.com/N4N11FCB5' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 Why clean architecture?
+
 https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures#clean-architecture
+
 https://www.youtube.com/watch?v=2dKZ-dWaCiU
 
 Why functional programming??
@@ -32,6 +34,6 @@ Benefits of functional programming:
  - function signatures are more meaningful
  - parallel/concurrent programming is easier
 
-ìFunctional programming is often regarded as the best-kept secret of scientific modelers, mathematicians, artificial intelligence researchers, financial institutions, graphic designers, CPU designers, compiler programmers, and telecommunications engineers.î
+‚ÄúFunctional programming is often regarded as the best-kept secret of scientific modelers, mathematicians, artificial intelligence researchers, financial institutions, graphic designers, CPU designers, compiler programmers, and telecommunications engineers.‚Äù
 
 The Wikipedia F# page
