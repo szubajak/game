@@ -1,5 +1,5 @@
 Advanced Template for modern .Net & React projects.
-Provides solid fundamentals for new system or subsystem.
+Solid fundamentals for new system or subsystem.
 
 - .Net Core 3.1
 - Entity Framework Core
