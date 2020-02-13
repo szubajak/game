@@ -28,7 +28,7 @@ We can expect next-generation programming languages to continue this trend in th
 Benefits of functional programming:
  - pure functions are easier to reason about
  - testing is easier
- - debuggin is easier
+ - debugging is easier
  - programs are more bulletproof
  - programs are written at a higher level, and are therefore easier to comprehend
  - function signatures are more meaningful
