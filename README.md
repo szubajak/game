@@ -11,8 +11,6 @@ Provides solid fundamentals for new system or subsystem.
 - Stylecop
 - LanguageExt (functional programming in C#)
 
-<a href='https://ko-fi.com/N4N11FCB5' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
-
 Why clean architecture?
 
 https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures#clean-architecture
@@ -37,3 +35,6 @@ Benefits of functional programming:
 “Functional programming is often regarded as the best-kept secret of scientific modelers, mathematicians, artificial intelligence researchers, financial institutions, graphic designers, CPU designers, compiler programmers, and telecommunications engineers.”
 
 The Wikipedia F# page
+
+
+<a href='https://ko-fi.com/N4N11FCB5' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
