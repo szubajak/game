@@ -2,6 +2,8 @@ Advanced Template for modern .Net & React projects.
 Solid fundamentals for new system or subsystem.
 
 - .Net Core 3.1
+- React
+- TypeScript
 - Entity Framework Core
 - Clean Architecture
 - MediatR
