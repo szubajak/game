@@ -17,7 +17,7 @@
     [InstanceForce(InstanceForce.Singleton)]
     public class CardMappers : ICardMappers
     {
-        public CardDto Map(Card card) => new CardDto
+        public CardDto Map(Card card) => card == null ? null : new CardDto
         {
             Id = card.Id,
             Suit = card.Suit.ToString(),

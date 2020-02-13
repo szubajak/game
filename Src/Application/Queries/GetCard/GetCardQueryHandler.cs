@@ -4,12 +4,10 @@
     using System.Threading.Tasks;
 
     using Application.Core.Interfaces;
-    using Application.Core.IoC;
     using Application.Core.Mappers;
     using Application.Core.Models;
     using MediatR;
 
-    [InstanceForce(InstanceForce.Transient)]
     public class GetCardQueryHandler : IRequestHandler<GetCardQuery, CardDto>
     {
         private readonly IGameDbContext _gameDb;
