@@ -13,7 +13,7 @@ Solid fundamentals for new system or subsystem.
 - Stylecop
 - LanguageExt (functional programming in C#)
 
-Why clean architecture?
+Why Clean Architecture?
 
 https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures#clean-architecture
 
