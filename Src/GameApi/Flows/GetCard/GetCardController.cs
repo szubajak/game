@@ -1,4 +1,4 @@
-﻿namespace GameApi.Pipes.GetCard
+﻿namespace GameApi.Flows.GetCard
 {
     using System.Threading.Tasks;
 
@@ -16,11 +16,11 @@
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Execute(int id)
         {
-            var test = await Mediator.Send(new GetCardQuery
+            var result = await Mediator.Send(new GetCardQuery
             { 
                 Id = id
             });
-            return Ok(test);
+            return Ok(result);
         }
     }
 }

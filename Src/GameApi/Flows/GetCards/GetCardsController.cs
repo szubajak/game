@@ -1,4 +1,4 @@
-﻿namespace GameApi.Pipes.GetCards
+﻿namespace GameApi.Flows.GetCards
 {
     using System.Threading.Tasks;
 
@@ -13,12 +13,12 @@
         [HttpGet]
         public async Task<IActionResult> Execute(int? page, int? pageSize)
         {
-            var test = await Mediator.Send(new GetCardsQuery
+            var result = await Mediator.Send(new GetCardsQuery
             {
                 Page = page ?? 1,
                 PageSize = pageSize ?? 2
             });
-            return Ok(test);
+            return Ok(result);
         }
     }
 }

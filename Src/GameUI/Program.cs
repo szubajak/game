@@ -25,7 +25,7 @@ namespace GameUI
         {
             services.AddSpaStaticFiles(c =>
             {
-                c.RootPath = "App/build";
+                c.RootPath = "App/dist";
             });
         }
 
