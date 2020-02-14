@@ -16,6 +16,9 @@ Solid fundamentals for new system or subsystem.
 - React
 - Parcel
 - TypeScript
+- Styled Components
+- RxJS
+- Axios
 - ESLint
 - Prettier
 
