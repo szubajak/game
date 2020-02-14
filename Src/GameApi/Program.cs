@@ -18,13 +18,41 @@ namespace GameApi
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.OpenApi.Models;
+    using Serilog;
+    using Serilog.Events;
+    using Serilog.Sinks.SystemConsole.Themes;
     using Storage.Setup;
 
     public sealed class Program
     {
-        public static void Main(string[] args)
+        public static string Name { get; } = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+
+        public static int Main(string[] args)
         {
-            CreateHost(args).Run();
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .Enrich.FromLogContext()
+                .MinimumLevel.Information()
+                .WriteTo.Console(theme: AnsiConsoleTheme.Code)
+                .CreateLogger();
+
+            AppDomain.CurrentDomain.ProcessExit += (s, e) =>
+            {
+                Log.Information($"{Name} => terminated");
+                Log.CloseAndFlush();
+            };
+
+            try
+            {
+                Log.Information($"Initiate => {Name}");
+                CreateHost(args).Run();
+                return 0;
+            }
+            catch (Exception e)
+            {
+                Log.Fatal(e, $"{Name} => terminated unexpectedly");
+                return 1;
+            }
         }
 
         public static IHost CreateHost(string[] args) =>

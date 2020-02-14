@@ -6,11 +6,13 @@ Solid fundamentals for new system or subsystem.
 - Entity Framework Core
 - Clean Architecture
 - MediatR
+- Autofac
 - CQRS
 - Docker
 - OpenApi
 - Stylecop
 - LanguageExt (functional programming in C#)
+- Serilog
 
 [Front-end]
 - React

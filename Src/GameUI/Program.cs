@@ -1,16 +1,46 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-namespace GameUI
+﻿namespace GameUI
 {
+    using System;
+
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Serilog;
+    using Serilog.Events;
+    using Serilog.Sinks.SystemConsole.Themes;
+
     public sealed class Program
     {
-        public static void Main(string[] args)
+        public static string Name { get; } = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+
+        public static int Main(string[] args)
         {
-            CreateHost(args).Run();
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .Enrich.FromLogContext()
+                .MinimumLevel.Information()
+                .WriteTo.Console(theme: AnsiConsoleTheme.Code)
+                .CreateLogger();
+
+            AppDomain.CurrentDomain.ProcessExit += (s, e) =>
+            {
+                Log.Information($"{Name} => terminated");
+                Log.CloseAndFlush();
+            };
+
+            try
+            {
+                Log.Information($"Initiate => {Name}");
+                CreateHost(args).Run();
+                return 0;
+            }
+            catch (Exception e)
+            {
+                Log.Fatal(e, $"{Name} => terminated unexpectedly");
+                return 1;
+            }
         }
 
         public static IHost CreateHost(string[] args) =>
