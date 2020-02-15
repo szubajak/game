@@ -5,7 +5,7 @@
     using Microsoft.Extensions.DependencyInjection;
 
     [Route("[controller]")]
-    public class GameController : ControllerBase
+    public abstract class GameController : ControllerBase
     {
         private IMediator _mediator;
 

@@ -27,7 +27,19 @@ Solid fundamentals for new system or subsystem.
 - Prettier
 - Docker
 
-Why clean architecture?
+[In development]
+- FluentValidation
+- xUnit
+- NSubstitute
+- FluentAssertions
+- Jens
+- Enzyme
+- Docker Compose
+- More business logic and data flows
+- Some GUI
+- Configuration
+
+Why Clean Architecture?
 
 https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures#clean-architecture
 

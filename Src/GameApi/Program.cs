@@ -36,7 +36,7 @@ namespace GameApi
                 .WriteTo.Console(theme: AnsiConsoleTheme.Code)
                 .CreateLogger();
 
-            AppDomain.CurrentDomain.ProcessExit += (s, e) =>
+            AppDomain.CurrentDomain.ProcessExit += (_, __) =>
             {
                 Log.Information($"{Name} => terminated");
                 Log.CloseAndFlush();
