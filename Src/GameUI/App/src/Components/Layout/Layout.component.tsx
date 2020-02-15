@@ -1,13 +1,13 @@
 import * as React from 'react'
-import StyledLayout from './Layout.styled'
-import Logo from '~/Components/Logo/Logo.component'
+import { LayoutStyle } from './Layout.style'
+import { LogoComponent } from '~/Components/Logo/Logo.component'
+import { CardComponent } from '~/Components/Card/Card.component'
 
-const Layout: React.FunctionComponent = () => {
+export const LayoutComponent: React.FunctionComponent = () => {
     return (
-        <StyledLayout>
-            <Logo />
-        </StyledLayout>
+        <LayoutStyle>
+            <LogoComponent />
+            <CardComponent />
+        </LayoutStyle>
     )
 }
-
-export default Layout

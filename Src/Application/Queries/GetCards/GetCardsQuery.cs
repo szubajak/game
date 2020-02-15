@@ -1,14 +1,11 @@
 ﻿namespace Application.Queries.GetCards
 {
-    using Application.Core.IoC;
     using Application.Core.Models;
+    using LanguageExt;
     using MediatR;
 
-    [InstanceForce(InstanceForce.Transient)]
-    public class GetCardsQuery : IRequest<CardsDto>
+    public class GetCardsQuery : IRequest<Option<CardsDto>>
     {
-        public int Page { get; set; }
-
-        public int PageSize { get; set; }
+        public PageDto Page { get; set; }
     }
 }

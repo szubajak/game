@@ -1,10 +1,6 @@
 import * as React from 'react'
-import StyledLogo from './Logo.styled'
+import { LogoStyle } from './Logo.style'
 
-const Logo: React.FunctionComponent = () => {
-    return (
-        <StyledLogo />
-    )
+export const LogoComponent: React.FunctionComponent = () => {
+    return <LogoStyle />
 }
-
-export default Logo

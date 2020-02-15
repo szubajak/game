@@ -14,13 +14,12 @@
         [HttpGet]
         [Route("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Execute(int id)
-        {
-            var result = await Mediator.Send(new GetCardQuery
-            { 
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Execute(int id) =>
+            (await Mediator.Send(new GetCardQuery
+            {
                 Id = id
-            });
-            return Ok(result);
-        }
+            }))
+            .Match<IActionResult>(Ok, NotFound);
     }
 }

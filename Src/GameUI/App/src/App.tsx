@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { render } from 'react-dom'
-import Layout from '~/Components/Layout/Layout.component'
+import { LayoutComponent } from '~/Components/Layout/Layout.component'
 
-const App: React.FC = () => (
-    <Layout />
-)
+const App: React.FC = () => <LayoutComponent />
 
 render(<App />, document.getElementById('root'))

@@ -5,14 +5,16 @@ Solid fundamentals for new system or subsystem.
 - .Net Core 3.1
 - Entity Framework Core
 - Clean Architecture
-- MediatR
+- Railway Oriented Programming
 - Autofac
+- MediatR
 - CQRS
-- Docker
 - OpenApi
 - Stylecop
 - LanguageExt (functional programming in C#)
 - Serilog
+- AutoMapper
+- Docker
 
 [Front-end]
 - React
@@ -23,6 +25,7 @@ Solid fundamentals for new system or subsystem.
 - Axios
 - ESLint
 - Prettier
+- Docker
 
 Why clean architecture?
 
