@@ -5,5 +5,5 @@ export type Card = {
 }
 
 export type Cards = {
-    list: Array<Card>
+    cards: Card[]
 }

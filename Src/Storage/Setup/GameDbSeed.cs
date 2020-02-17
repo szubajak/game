@@ -1,5 +1,9 @@
 ﻿namespace Storage.Setup
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     using Domain.Entities;
     using Microsoft.EntityFrameworkCore;
 
@@ -10,32 +14,25 @@
             builder.Entity<Card>().HasData(GetCards());
         }
 
-        private static Card[] GetCards() => new[]
-        {
-            new Card
-            {
-                Id = 1,
-                Suit = CardSuit.Hearts,
-                Value = CardValue.King
-            },
-            new Card
-            {
-                Id = 2,
-                Suit = CardSuit.Spades,
-                Value = CardValue.Jack
-            },
-            new Card
-            {
-                Id = 3,
-                Suit = CardSuit.Diamonds,
-                Value = CardValue.Five
-            },
-            new Card
-            {
-                Id = 4,
-                Suit = CardSuit.Clubs,
-                Value = CardValue.Joker
-            }
-        };
+        private static List<Card> GetCards() => 
+            Enum.GetValues(typeof(CardSuit))
+                .Cast<CardSuit>()
+                .Aggregate(new List<Card>(), (list, suit) => 
+                {
+                    Enum.GetValues(typeof(CardValue))
+                        .Cast<CardValue>()
+                        .ToList()
+                        .ForEach(value =>
+                        {
+                            list.Add(new Card
+                            {
+                                Id = list.Count + 1,
+                                Suit = suit,
+                                Value = value
+                            });
+                        });
+
+                    return list;
+                });
     }
 }

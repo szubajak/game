@@ -15,10 +15,10 @@
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
-        public async Task<IActionResult> Execute(int pageNumber = 1, int pageSize = 2) =>
+        public async Task<IActionResult> Execute(int? pageNumber, int? pageSize) =>
             (await Mediator.Send(new GetCardsQuery
             {
-               Page = new PageDto(pageNumber, pageSize)
+               Page = new PageDto(pageNumber ?? 1, pageSize ?? 100)
             }))
             .Match<IActionResult>(Ok, StatusCode(StatusCodes.Status502BadGateway));
     }

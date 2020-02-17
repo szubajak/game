@@ -1,12 +1,15 @@
 import { Subject } from 'rxjs'
-import { Card, Cards } from './Models'
+import { Cards } from './Models'
+import { getCards } from './GameService'
 
 type Engine = {
     cards: Subject<Cards>
-    card: Subject<Card>
+    fetchCards(): void
 }
 
 export const GameEngine: Engine = {
     cards: new Subject<Cards>(),
-    card: new Subject<Card>(),
+    fetchCards: async () => {
+        GameEngine.cards.next(await getCards())
+    },
 }

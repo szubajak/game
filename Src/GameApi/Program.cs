@@ -85,6 +85,15 @@ namespace GameApi
                     {
                         o.LowercaseUrls = true;
                     })
+                    .AddCors(o =>
+                    {
+                        o.AddPolicy("Test", policy => 
+                        {
+                            policy.AllowAnyOrigin();
+                            policy.AllowAnyMethod();
+                            policy.AllowAnyHeader();
+                        });
+                    })
                     .AddSwaggerGen(o => 
                     {
                         o.SwaggerDoc($"v1", new OpenApiInfo()
@@ -110,7 +119,7 @@ namespace GameApi
         private static void SetupApp(IApplicationBuilder app)
         {
             app.UseRouting()
-               .UseAuthorization()
+               .UseCors("Test")
                .UseEndpoints(endpoints =>
                {
                    endpoints.MapControllers();

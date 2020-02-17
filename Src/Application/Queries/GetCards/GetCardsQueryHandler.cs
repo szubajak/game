@@ -8,6 +8,7 @@
     using Application.Core.Log;
     using Application.Core.Models;
     using AutoMapper;
+    using Domain.Entities;
     using LanguageExt;
     using MediatR;
     using Microsoft.EntityFrameworkCore;
@@ -31,13 +32,19 @@
         }
 
         public async Task<Option<CardsDto>> Handle(GetCardsQuery request, CancellationToken cancellationToken) =>
-            await TryAsync(_gameDb.Cards.Skip(request.Page.CalculateSkip()).Take(request.Page.Size))
-                .BindAsync(async cards => TryAsync(new CardsDto { Cards = await _mapper.ProjectTo<CardDto>(cards).ToListAsync() }))
+            await HandleQuery(request)
+                .Bind(MapOutput)
                 .Bind(cardsDto => TryAsync(Some(cardsDto)))
                 .IfFail(e =>
                 {
                     _logger.LogError(LogEvents.ServiceFail, e, e.Message);
                     return None;
                 });
+
+        private TryAsync<IQueryable<Card>> HandleQuery(GetCardsQuery request) =>
+            TryAsync(_gameDb.Cards.Skip(request.Page.CalculateSkip()).Take(request.Page.Size));
+
+        private TryAsync<CardsDto> MapOutput(IQueryable<Card> cards) =>
+            TryAsync(async () => new CardsDto { Cards = await _mapper.ProjectTo<CardDto>(cards).ToListAsync() });
     }
 }

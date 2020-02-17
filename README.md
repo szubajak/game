@@ -27,6 +27,8 @@ Solid fundamentals for new system or subsystem.
 - Prettier
 - Docker
 
++ Monorepo
+
 [In development]
 - FluentValidation
 - xUnit
@@ -36,7 +38,6 @@ Solid fundamentals for new system or subsystem.
 - Enzyme
 - Docker Compose
 - More business logic and data flows
-- Some GUI
 - Configuration
 
 Why Clean Architecture?
@@ -44,6 +45,7 @@ Why Clean Architecture?
 https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures#clean-architecture
 
 https://www.youtube.com/watch?v=2dKZ-dWaCiU
+
 
 Why functional programming??
 
