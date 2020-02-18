@@ -7,5 +7,7 @@
         public string Suit { get; set; }
 
         public string Value { get; set; }
+
+        public double Power { get; set; }
     }
 }

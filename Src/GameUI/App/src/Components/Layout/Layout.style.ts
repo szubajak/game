@@ -9,8 +9,9 @@ export const GlobalStyle = createGlobalStyle`
 
 export const LayoutStyle = styled.div`
     height: 100vh;
+    min-height: 800px;
     display: grid;
     grid-template-columns: auto 1000px auto;
-    grid-template-rows: min-content auto 120px;
+    grid-template-rows: min-content auto 160px;
     background-color: #2e3e60;
 `

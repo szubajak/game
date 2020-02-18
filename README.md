@@ -1,5 +1,7 @@
 Advanced Template for modern .Net & React projects.
-Solid fundamentals for new system or subsystem.
+Solid fundamentals for new system or sub-system.
+
+Single solution and mono repository.
 
 [Back-end]
 - .Net Core 3.1
@@ -27,8 +29,6 @@ Solid fundamentals for new system or subsystem.
 - Prettier
 - Docker
 
-+ Monorepo
-
 [In development]
 - FluentValidation
 - xUnit
@@ -37,8 +37,11 @@ Solid fundamentals for new system or subsystem.
 - Jens
 - Enzyme
 - Docker Compose
-- More business logic and data flows
 - Configuration
+- Integration with external service
+- Integration with Azure functions
+- ARM template
+
 
 Why Clean Architecture?
 

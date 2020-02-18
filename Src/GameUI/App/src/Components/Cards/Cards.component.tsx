@@ -2,14 +2,14 @@ import * as React from 'react'
 import { CardsStyle } from './Cards.style'
 import { CardComponent } from '~/Components/Card/Card.component'
 import { Card } from '~/Core/Models'
-import { GameEngine } from '~/Core/Engine'
+import { Engine } from '~Core/GameEngine'
 
 export const CardsComponent: React.FunctionComponent = () => {
     const [cards, setCards] = React.useState(new Array<Card>())
 
     React.useEffect(() => {
-        GameEngine.cards.subscribe(newCards => {
-            setCards(newCards.cards)
+        Engine.cards.subscribe(newCards => {
+            setCards(newCards)
         })
     })
 
@@ -21,6 +21,9 @@ export const CardsComponent: React.FunctionComponent = () => {
                     id={card.id}
                     suit={card.suit}
                     value={card.value}
+                    isBlue={card.isBlue}
+                    isRed={card.isRed}
+                    power={card.power}
                 />
             ))}
         </CardsStyle>

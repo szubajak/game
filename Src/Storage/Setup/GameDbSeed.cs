@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
 
     using Domain.Entities;
@@ -28,7 +29,8 @@
                             {
                                 Id = list.Count + 1,
                                 Suit = suit,
-                                Value = value
+                                Value = value,
+                                Power = double.Parse($"{(int)value}.{(int)suit}", CultureInfo.InvariantCulture)
                             });
                         });
 

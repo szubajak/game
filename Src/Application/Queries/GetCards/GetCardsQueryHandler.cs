@@ -1,5 +1,6 @@
 ﻿namespace Application.Queries.GetCards
 {
+    using System;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
@@ -42,9 +43,17 @@
                 });
 
         private TryAsync<IQueryable<Card>> HandleQuery(GetCardsQuery request) =>
-            TryAsync(_gameDb.Cards.Skip(request.Page.CalculateSkip()).Take(request.Page.Size));
+            TryAsync(
+                _gameDb.Cards
+                       .Skip(request.Page.CalculateSkip())
+                       .OrderBy(x => Guid.NewGuid())
+                       .Take(request.Page.Size));
 
         private TryAsync<CardsDto> MapOutput(IQueryable<Card> cards) =>
-            TryAsync(async () => new CardsDto { Cards = await _mapper.ProjectTo<CardDto>(cards).ToListAsync() });
+            TryAsync(async () => 
+                new CardsDto 
+                { 
+                    Cards = await _mapper.ProjectTo<CardDto>(cards).ToListAsync() 
+                });
     }
 }

@@ -33,5 +33,7 @@
         public CardSuit Suit { get; set; }
 
         public CardValue Value { get; set; }
+
+        public double Power { get; set; }
     }
 }
