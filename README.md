@@ -3,19 +3,20 @@ Solid fundamentals for new system or sub-system.
 
 Single solution and mono repository.
 
+Clean Architecture. Clean Code.
+
 [Back-end]
 - .Net Core 3.1
 - Entity Framework Core
-- Clean Architecture
-- Railway Oriented Programming
-- Autofac
-- MediatR
 - CQRS
-- OpenApi
-- Stylecop
+- Railway Oriented Programming
 - LanguageExt (functional programming in C#)
+- MediatR
+- OpenApi
+- Autofac
 - Serilog
 - AutoMapper
+- Stylecop
 - xUnit
 - NSubstitute
 - FluentAssertions
@@ -43,6 +44,7 @@ Single solution and mono repository.
 - ARM template
 - MaterialUI
 - Complete CRUD example
+- Additional domain clients (API and UI)
 
 
 Why Clean Architecture?
