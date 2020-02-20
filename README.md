@@ -16,6 +16,9 @@ Single solution and mono repository.
 - LanguageExt (functional programming in C#)
 - Serilog
 - AutoMapper
+- xUnit
+- NSubstitute
+- FluentAssertions
 - Docker
 
 [Front-end]
@@ -31,9 +34,6 @@ Single solution and mono repository.
 
 [In development]
 - FluentValidation
-- xUnit
-- NSubstitute
-- FluentAssertions
 - Jens
 - Enzyme
 - Docker Compose
@@ -41,6 +41,8 @@ Single solution and mono repository.
 - Integration with external service
 - Integration with Azure functions
 - ARM template
+- MaterialUI
+- Complete CRUD example
 
 
 Why Clean Architecture?
