@@ -1,6 +1,18 @@
 export enum Player {
-    Red,
+    Green,
     Blue,
+    Croupier,
+}
+
+export enum CardState {
+    Victorious,
+    Defeated,
+    ReadyToBattle,
+}
+
+export interface GameCard extends Card {
+    player: Player
+    state: CardState
 }
 
 export type Card = {
@@ -8,8 +20,6 @@ export type Card = {
     suit: string
     value: string
     power: number
-    isBlue: boolean
-    isRed: boolean
 }
 
 export type Cards = {

@@ -1,40 +1,81 @@
-import { Subject } from 'rxjs'
-import { Card } from './Models'
-import { GameViewModel } from './ViewModel'
-import { GameState } from './GameState'
+import { Card, Player, CardState, GameCard } from './Models'
 import { getCards } from './GameService'
 
-class GameEngine implements GameViewModel {
-    gameState: GameState
-    cards: Subject<Card[]>
-    message: Subject<string>
-    redScore: Subject<number>
-    blueScore: Subject<number>
+export class GameEngine {
+    gameCards: Array<GameCard> = new Array<GameCard>()
 
-    constructor() {
-        this.gameState = new GameState([])
-        this.cards = new Subject<Card[]>()
-        this.message = new Subject<string>()
-        this.redScore = new Subject<number>()
-        this.blueScore = new Subject<number>()
+    private _cards: Array<Card> = new Array<Card>()
+    private _currentPlayer: Player = Player.Croupier
+    private _cardInBattle: GameCard | null = null
+    private _greenScore = 0
+    private _blueScore = 0
+
+    async startNewGame(): Promise<void> {
+        if (!this.isLoaded()) {
+            this._cards = (await getCards()).cards
+        }
+
+        this.resetGame()
     }
 
-    async startGame(): Promise<void> {
-        this.gameState = new GameState((await getCards()).cards)
-        this.notifyChanges()
+    exposeNextCard = (id: number): void => {
+        this.gameCards = this.gameCards.map(gameCard => {
+            if (gameCard.id === id) {
+                gameCard.player = this._currentPlayer
+                this.battle(gameCard)
+            }
+            return gameCard
+        })
+        this._currentPlayer = this.nextPlayer()
     }
 
-    selectCard(id: number): void {
-        this.gameState.pickCard(id)
-        this.notifyChanges()
+    battle = (gameCard: GameCard): void => {
+        if (this._cardInBattle === null) {
+            this._cardInBattle = gameCard
+            return
+        }
+
+        if (this._cardInBattle.power > gameCard.power) {
+            this.score(this._cardInBattle.player)
+        } else {
+            this.score(gameCard.player)
+        }
+        this._cardInBattle = null
     }
 
-    private notifyChanges(): void {
-        this.cards.next(this.gameState.cards)
-        this.message.next(this.gameState.getMessage())
-        this.redScore.next(this.gameState.redScore)
-        this.blueScore.next(this.gameState.blueScore)
+    score = (player: Player): void => {
+        if (player === Player.Blue) {
+            this._blueScore++
+        }
+
+        this._greenScore++
     }
+
+    getScore = (player: Player): number => {
+        if (player === Player.Blue) {
+            return this._blueScore
+        }
+
+        return this._greenScore
+    }
+
+    private nextPlayer = (): Player => {
+        return this._currentPlayer === Player.Blue ? Player.Green : Player.Blue
+    }
+
+    private resetGame = (): void => {
+        this.gameCards = this._cards.map(card => {
+            return {
+                id: card.id,
+                power: card.power,
+                suit: card.suit,
+                value: card.value,
+                player: Player.Croupier,
+                state: CardState.ReadyToBattle,
+            } as GameCard
+        })
+        this._currentPlayer = this.nextPlayer()
+    }
+
+    private isLoaded = (): boolean => this._cards.length > 0
 }
-
-export const Engine = new GameEngine()

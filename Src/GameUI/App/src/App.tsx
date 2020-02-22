@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React from 'react'
 import { render } from 'react-dom'
-import { LayoutComponent } from '~/Components/Layout/Layout.component'
+import { LayoutComponent } from '~Components/Layout/Layout.component'
 
 const App: React.FC = () => <LayoutComponent />
 

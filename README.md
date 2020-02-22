@@ -27,6 +27,8 @@ Clean Architecture. Clean Code.
 - Parcel
 - TypeScript
 - Styled Components
+- MaterialUI
+- CSS Grid & Flexbox
 - RxJS
 - Axios
 - ESLint
@@ -42,7 +44,6 @@ Clean Architecture. Clean Code.
 - Integration with external service
 - Integration with Azure functions
 - ARM template
-- MaterialUI
 - Complete CRUD example
 - Additional domain clients (API and UI)
 

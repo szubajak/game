@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
-export const CardsStyle = styled.div`
-    grid-column: 2;
-    grid-row: 2;
+export const StyledGameBoard = styled.div`
+    height: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: auto;
     justify-content: space-evenly;
-    background-color: white;
+    align-content: space-between;
 `
