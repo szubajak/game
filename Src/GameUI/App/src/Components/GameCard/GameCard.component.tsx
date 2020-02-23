@@ -1,15 +1,20 @@
 import * as React from 'react'
-import { StyledGameCard } from './GameCard.styles'
-import { GameCard, Player } from '~/Core/Models'
+import {
+    StyledHiddenGameCard,
+    StyledReadyToBattleGameCard,
+    StyledDefeatedGameCard,
+    StyledVictoriousGameCard,
+} from './GameCard.styles'
+import { GameCard, Player, CardState } from '~/Core/Models'
 import { CardContent, Typography } from '@material-ui/core'
 import { AppVM } from '~Core/AppViewModel'
 
-export const GameCardComponent: React.FunctionComponent<GameCard> = card => {
+export const GameCardComponent: React.FC<GameCard> = card => {
     const isExposed = (): boolean => {
         return card.player !== Player.Croupier
     }
 
-    const selectMe = (): void => AppVM.exposeNextCard(card.id)
+    const selectMe = (): void => AppVM.exposeNextGameCard(card.id)
 
     const getSuit = (): string => {
         switch (card.suit) {
@@ -34,7 +39,7 @@ export const GameCardComponent: React.FunctionComponent<GameCard> = card => {
         return 'black'
     }
 
-    const getBorderColor = (): string => {
+    const getPlayerColor = (): string => {
         if (card.player === Player.Green) {
             return 'green'
         }
@@ -42,22 +47,50 @@ export const GameCardComponent: React.FunctionComponent<GameCard> = card => {
         return 'blue'
     }
 
-    if (isExposed()) {
+    if (!isExposed()) {
         return (
-            <StyledGameCard color={getColor()} borderColor={getBorderColor()}>
+            <StyledHiddenGameCard onClick={selectMe}>
                 <CardContent>
-                    <Typography variant="h3">{getSuit()}</Typography>
-                    <Typography variant="h5">{card.value}</Typography>
+                    <Typography variant="h3">?</Typography>
                 </CardContent>
-            </StyledGameCard>
+            </StyledHiddenGameCard>
         )
     }
 
-    return (
-        <StyledGameCard onClick={selectMe} color="black" borderColor="white">
-            <CardContent>
-                <Typography variant="h3">?</Typography>
-            </CardContent>
-        </StyledGameCard>
+    const cardContent = (
+        <CardContent>
+            <Typography variant="h3">{getSuit()}</Typography>
+            <Typography variant="h6">{card.value}</Typography>
+        </CardContent>
     )
+
+    switch (card.state) {
+        case CardState.Defeated:
+            return (
+                <StyledDefeatedGameCard
+                    color={getColor()}
+                    playercolor={getPlayerColor()}
+                >
+                    {cardContent}
+                </StyledDefeatedGameCard>
+            )
+        case CardState.Victorious:
+            return (
+                <StyledVictoriousGameCard
+                    color={getColor()}
+                    playercolor={getPlayerColor()}
+                >
+                    {cardContent}
+                </StyledVictoriousGameCard>
+            )
+        default:
+            return (
+                <StyledReadyToBattleGameCard
+                    color={getColor()}
+                    playercolor={getPlayerColor()}
+                >
+                    {cardContent}
+                </StyledReadyToBattleGameCard>
+            )
+    }
 }

@@ -6,7 +6,7 @@ export class GameEngine {
 
     private _cards: Array<Card> = new Array<Card>()
     private _currentPlayer: Player = Player.Croupier
-    private _cardInBattle: GameCard | null = null
+    private _battleHost: GameCard | null = null
     private _greenScore = 0
     private _blueScore = 0
 
@@ -18,34 +18,45 @@ export class GameEngine {
         this.resetGame()
     }
 
-    exposeNextCard = (id: number): void => {
-        this.gameCards = this.gameCards.map(gameCard => {
-            if (gameCard.id === id) {
-                gameCard.player = this._currentPlayer
-                this.battle(gameCard)
-            }
-            return gameCard
-        })
+    exposeNextGameCard = (id: number): void => {
+        const exposedGameCard = this.getGameCard(id)
+        if (!exposedGameCard) return
+
+        exposedGameCard.player = this._currentPlayer
+        this.updateGameCard(exposedGameCard)
+
+        this.battle(exposedGameCard)
         this._currentPlayer = this.nextPlayer()
+        if (this.isGameOver()) {
+            alert('Battle has ended!')
+        }
     }
 
-    battle = (gameCard: GameCard): void => {
-        if (this._cardInBattle === null) {
-            this._cardInBattle = gameCard
+    battle = (pretender: GameCard): void => {
+        if (this._battleHost === null) {
+            this._battleHost = pretender
             return
         }
 
-        if (this._cardInBattle.power > gameCard.power) {
-            this.score(this._cardInBattle.player)
+        if (this._battleHost.power > pretender.power) {
+            this.score(this._battleHost.player)
+            this._battleHost.state = CardState.Victorious
+            pretender.state = CardState.Defeated
         } else {
-            this.score(gameCard.player)
+            this.score(pretender.player)
+            this._battleHost.state = CardState.Defeated
+            pretender.state = CardState.Victorious
         }
-        this._cardInBattle = null
+
+        this.updateGameCard(this._battleHost)
+        this.updateGameCard(pretender)
+        this._battleHost = null
     }
 
     score = (player: Player): void => {
         if (player === Player.Blue) {
             this._blueScore++
+            return
         }
 
         this._greenScore++
@@ -57,6 +68,22 @@ export class GameEngine {
         }
 
         return this._greenScore
+    }
+
+    private isGameOver = (): boolean => {
+        const croupierCards = this.gameCards.filter(
+            x => x.player === Player.Croupier
+        )
+        return croupierCards.length === 0
+    }
+
+    private getGameCard = (id: number): GameCard | undefined =>
+        this.gameCards.find(x => x.id === id)
+
+    private updateGameCard = (gameCard: GameCard): void => {
+        this.gameCards = this.gameCards.map(x => {
+            return x.id === gameCard.id ? gameCard : x
+        })
     }
 
     private nextPlayer = (): Player => {
@@ -75,6 +102,8 @@ export class GameEngine {
             } as GameCard
         })
         this._currentPlayer = this.nextPlayer()
+        this._blueScore = 0
+        this._greenScore = 0
     }
 
     private isLoaded = (): boolean => this._cards.length > 0

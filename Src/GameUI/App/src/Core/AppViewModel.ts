@@ -13,8 +13,8 @@ class AppViewModel {
         this.notifyChanges()
     }
 
-    exposeNextCard(id: number): void {
-        this._gameEngine.exposeNextCard(id)
+    exposeNextGameCard(id: number): void {
+        this._gameEngine.exposeNextGameCard(id)
         this.notifyChanges()
     }
 
