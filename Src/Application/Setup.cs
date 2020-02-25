@@ -10,9 +10,9 @@
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddScoped<IMediator, Mediator>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly())
+                    .AddMediatR(Assembly.GetExecutingAssembly())
+                    .AddScoped<IMediator, Mediator>();
 
             return services;
         }

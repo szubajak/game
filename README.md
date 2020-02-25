@@ -16,6 +16,7 @@ Clean Architecture. Clean Code.
 - Autofac
 - Serilog
 - AutoMapper
+- FluentValidation
 - Stylecop
 - xUnit
 - NSubstitute
@@ -36,16 +37,16 @@ Clean Architecture. Clean Code.
 - Docker
 
 [In development]
-- FluentValidation
-- Jens
-- Enzyme
 - Docker Compose
 - Configuration
-- Integration with external service
-- Integration with Azure functions
+- Jens
+- Enzyme
+- Integration with some external service
+- Integration with Azure Functions
 - ARM template
 - Complete CRUD example
-- Additional domain clients (API and UI)
+- Additional domain clients - Admin Panel API & GUI
+- Documentation - How to?
 
 
 Why Clean Architecture?

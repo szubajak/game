@@ -9,9 +9,10 @@ namespace GameApi
     using System.Linq;
 
     using Application;
-    using Application.Core.IoC;
+    using Application.Core.DependencyInjection;
     using Autofac;
     using Autofac.Extensions.DependencyInjection;
+    using FluentValidation.AspNetCore;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
@@ -79,27 +80,28 @@ namespace GameApi
 
         private static void SetupServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                    .AddFluentValidation();
             services.AddApplication()
-                    .AddRouting(o => 
+                    .AddRouting(o =>
                     {
                         o.LowercaseUrls = true;
                     })
                     .AddCors(o =>
                     {
-                        o.AddPolicy("Test", policy => 
+                        o.AddPolicy("Test", policy =>
                         {
                             policy.AllowAnyOrigin();
                             policy.AllowAnyMethod();
                             policy.AllowAnyHeader();
                         });
                     })
-                    .AddSwaggerGen(o => 
+                    .AddSwaggerGen(o =>
                     {
                         o.SwaggerDoc($"v1", new OpenApiInfo()
                         {
                             Contact = new OpenApiContact
-                            { 
+                            {
                                 Email = "jakub.szubarga@gmail.com",
                                 Name = "Jakub Szubarga",
                                 Url = new Uri("https://www.linkedin.com/in/szubarga/")
@@ -110,7 +112,7 @@ namespace GameApi
                         o.DocInclusionPredicate((_, api) => string.IsNullOrEmpty(api.GroupName) ? false : true);
                         o.TagActionsBy(selector => new List<string> { selector.GroupName });
                     })
-                    .AddDbContext<GameDbContext>(o => 
+                    .AddDbContext<GameDbContext>(o =>
                     {
                         o.UseInMemoryDatabase(nameof(GameDbContext));
                     });

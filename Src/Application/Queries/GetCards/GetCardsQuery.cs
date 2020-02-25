@@ -1,11 +1,13 @@
 ﻿namespace Application.Queries.GetCards
 {
-    using Application.Core.Models;
-    using LanguageExt;
+    using Application.Core.Dtos;
+    using LanguageExt.Common;
     using MediatR;
 
-    public class GetCardsQuery : IRequest<Option<CardsDto>>
+    public class GetCardsQuery : IRequest<Result<CardsDto>>
     {
-        public PageDto Page { get; set; }
+        public int? Limit { get; set; }
+
+        public int? Offset { get; set; }
     }
 }

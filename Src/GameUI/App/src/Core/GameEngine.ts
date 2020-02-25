@@ -28,7 +28,9 @@ export class GameEngine {
         this.battle(exposedGameCard)
         this._currentPlayer = this.nextPlayer()
         if (this.isGameOver()) {
-            alert('Battle has ended!')
+            setTimeout(function() {
+                alert('Battle has ended!')
+            }, 1000)
         }
     }
 

@@ -1,4 +1,4 @@
-﻿namespace Application.Core.IoC
+﻿namespace Application.Core.DependencyInjection
 {
     using System;
 
