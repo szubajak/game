@@ -1,7 +1,7 @@
 ﻿namespace Storage.Setup
 {
-    using Application.Core.Interfaces;
     using Application.Core.DependencyInjection;
+    using Application.Core.Interfaces;
     using Domain.Entities;
     using Microsoft.EntityFrameworkCore;
 

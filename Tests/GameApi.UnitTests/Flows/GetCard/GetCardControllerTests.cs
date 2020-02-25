@@ -2,10 +2,12 @@
 {
     using System.Threading.Tasks;
 
-    using Application.Core.Models;
+    using Application.Core.Dtos;
+    using Application.Core.Exceptions;
     using Application.Queries.GetCard;
     using FluentAssertions;
     using GameApi.Flows.GetCard;
+    using LanguageExt.Common;
     using MediatR;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -38,18 +40,37 @@
         }
 
         [Fact]
+        public async Task Execute_InvalidId_ShouldReturnBadRequest()
+        {
+            // Arrange
+            var id = 0;
+            var errorMessage = TestData.GetRandomString();
+            var exception = new InvalidRequestException(errorMessage);
+            var response = new OptionalResult<CardDto>(exception);
+
+            _mockMediator.Send(Arg.Is<GetCardQuery>(q => q.Id.Equals(id)), default).Returns(response);
+
+            // Act
+            var result = await _controller.Execute(id);
+
+            // Assert
+            result.Should().BeEquivalentTo(new BadRequestObjectResult(errorMessage));
+        }
+
+        [Fact]
         public async Task Execute_CardExists_ShouldReturnCard()
         {
             // Arrange
-            var id = 1;
+            var id = TestData.GetRandomInt();
             var cardDto = new CardDto 
             { 
                 Id = id,
                 Suit = TestData.GetRandomString(),
-                Value = TestData.GetRandomString() 
+                Value = TestData.GetRandomString()
             };
+            var response = new OptionalResult<CardDto>(Some(cardDto));
 
-            _mockMediator.Send(Arg.Any<GetCardQuery>(), default).Returns(cardDto);
+            _mockMediator.Send(Arg.Is<GetCardQuery>(q => q.Id.Equals(id)), default).Returns(response);
 
             // Act
             var result = await _controller.Execute(id);
@@ -63,8 +84,9 @@
         {
             // Arrange
             var id = TestData.GetRandomInt();
+            var response = new OptionalResult<CardDto>(None);
 
-            _mockMediator.Send(Arg.Any<GetCardQuery>(), default).Returns(None);
+            _mockMediator.Send(Arg.Is<GetCardQuery>(q => q.Id.Equals(id)), default).Returns(response);
 
             // Act
             var result = await _controller.Execute(id);
