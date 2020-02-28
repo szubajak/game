@@ -43,7 +43,7 @@ Full working solution with Infrastructure as Code to build and run it on Azure
 ### [in development] ###
 - Docker Compose
 - Jens & Enzyme
-- Integration with Azure Functions asn external service
+- Integration with Azure Functions and external service
 - Complete CRUD example
 - Additional apps - Admin Panel API and GUI
 - Documentation - How to?
