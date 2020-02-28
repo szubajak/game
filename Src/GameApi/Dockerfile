@@ -6,11 +6,14 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-nanoserver-1903 AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-1903 AS build
 WORKDIR /src
 COPY ["GameApi/GameApi.csproj", "GameApi/"]
+COPY ["Application/Application.csproj", "Application/"]
+COPY ["Domain/Domain.csproj", "Domain/"]
+COPY ["Frame/Frame.csproj", "Frame/"]
+COPY ["Storage/Storage.csproj", "Storage/"]
 RUN dotnet restore "GameApi/GameApi.csproj"
 COPY . .
 WORKDIR "/src/GameApi"

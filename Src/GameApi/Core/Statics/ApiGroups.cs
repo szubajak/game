@@ -1,4 +1,4 @@
-﻿namespace GameApi.Core.Constants
+﻿namespace GameApi.Core.Statics
 {
     public static class ApiGroups
     {

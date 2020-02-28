@@ -2,6 +2,7 @@
 {
     using System;
 
+    using GameUI.Core.Statics;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
@@ -49,7 +50,8 @@
 
         private static void SetupWebHost(IWebHostBuilder builder) =>
             builder.ConfigureServices(SetupServices)
-                   .Configure(SetupApp);
+                   .Configure(SetupApp)
+                   .UseUrls(Environment.GetEnvironmentVariable(AppEnvironment.ASPNETCORE_URLS) ?? "http://*:80");
 
         private static void SetupServices(IServiceCollection services)
         {

@@ -4,7 +4,7 @@
 
     using Application.Queries.GetCards;
     using GameApi.Core.Abstractions;
-    using GameApi.Core.Constants;
+    using GameApi.Core.Statics;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
 

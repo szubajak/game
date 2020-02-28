@@ -5,3 +5,5 @@ node_modules
 dist
 .cache
 *.csproj.user
+packages
+*.parameters.json

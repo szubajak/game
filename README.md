@@ -1,27 +1,18 @@
 Advanced Template for modern .Net & React projects.
 Solid fundamentals for new system or sub-system.
 
-Single solution and mono repository.
-
-Clean Architecture. Clean Code.
-
 [Back-end]
 - .Net Core 3.1
 - Entity Framework Core
-- CQRS
-- Railway Oriented Programming
-- LanguageExt (functional programming in C#)
 - MediatR
 - OpenApi
 - Autofac
 - Serilog
 - AutoMapper
 - FluentValidation
-- Stylecop
 - xUnit
 - NSubstitute
 - FluentAssertions
-- Docker
 
 [Front-end]
 - React
@@ -32,22 +23,29 @@ Clean Architecture. Clean Code.
 - CSS Grid & Flexbox
 - RxJS
 - Axios
-- ESLint
-- Prettier
-- Docker
+
+[General]
+* Infrastructure as Code (IaC):
+    1. Docker - every app has Dockerfile with build & run configuration
+    2. Azure Resource Manager template - resource group definition with all resources needed to host it in Azure using App Service
+    3. Service Fabric project with environment definition
+* Clean Architecture - puts the business logic and application model at the center of the application
+* Clean Code - powered by Stylecop, Microsoft.FxCopAnalyzers, ESLint and Prettier
+* Monolithic repository - like Google:) { https://research.google/pubs/pub45424/ }
+* CQRS - Implementing CQRS in your application can maximize its performance, scalability, and security. { https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs }
+* Railway Oriented Programming - powered by LanguageExt. "The desire here is to make programming in C# much more reliable and to make the engineer's inertia flow
+in the direction of declarative and functional code rather than imperative." 
+{ https://github.com/louthy/language-ext }
+{ https://zohaib.me/railway-programming-pattern-in-elixir/ }
 
 [In development]
 - Docker Compose
 - Configuration
-- Jens
-- Enzyme
-- Integration with some external service
-- Integration with Azure Functions
-- ARM template
+- Jens & Enzyme
+- Integration with Azure Functions asn external service
 - Complete CRUD example
-- Additional domain clients - Admin Panel API & GUI
+- Additional domain clients - Admin Panel API and GUI
 - Documentation - How to?
-
 
 Why Clean Architecture?
 
