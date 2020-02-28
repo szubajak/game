@@ -24,7 +24,7 @@ Solid fundamentals for new system or sub-system.
 - RxJS
 - Axios
 
-[General]
+[General]\
 * Infrastructure as Code (IaC):
     * Docker - every app has Dockerfile with build & run configuration
     * Azure Resource Manager template - resource group definition with all resources needed to host it in Azure using App Service
@@ -33,19 +33,18 @@ Solid fundamentals for new system or sub-system.
 * Clean Code - powered by Stylecop, Microsoft.FxCopAnalyzers, ESLint and Prettier
 * Monolithic repository - like Google:)\
 { https://research.google/pubs/pub45424/ }
-* CQRS - implementing CQRS in your application can maximize its performance, scalability, and security\
+* CQRS - in your application can maximize its performance, scalability, and security\
 { https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs }
-* Railway Oriented Programming - powered by LanguageExt\
+* Railway Oriented Programming - functional programming in C# powered by LanguageExt\
 { https://github.com/louthy/language-ext }\
 { https://zohaib.me/railway-programming-pattern-in-elixir/ }
 
 [In development]
 - Docker Compose
-- Configuration
 - Jens & Enzyme
 - Integration with Azure Functions asn external service
 - Complete CRUD example
-- Additional domain clients - Admin Panel API and GUI
+- Additional apps - Admin Panel API and GUI
 - Documentation - How to?
 
 Why Clean Architecture?
