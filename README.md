@@ -31,7 +31,7 @@ Solid fundamentals for new system or sub-system.
     * Service Fabric project with environment definition
 * Clean Architecture - puts the business logic and application model at the center of the application
 * Clean Code - powered by Stylecop, Microsoft.FxCopAnalyzers, ESLint and Prettier
-* Monolithic repository - like Google:)
+* Monolithic repository - like Google:)\
 { https://research.google/pubs/pub45424/ }
 
 * CQRS - implementing CQRS in your application can maximize its performance, scalability, and security
