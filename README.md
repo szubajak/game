@@ -26,9 +26,9 @@ Solid fundamentals for new system or sub-system.
 
 [General]
 * Infrastructure as Code (IaC):
-    1. Docker - every app has Dockerfile with build & run configuration
-    2. Azure Resource Manager template - resource group definition with all resources needed to host it in Azure using App Service
-    3. Service Fabric project with environment definition
+    * Docker - every app has Dockerfile with build & run configuration
+    * Azure Resource Manager template - resource group definition with all resources needed to host it in Azure using App Service
+    * Service Fabric project with environment definition
 * Clean Architecture - puts the business logic and application model at the center of the application
 * Clean Code - powered by Stylecop, Microsoft.FxCopAnalyzers, ESLint and Prettier
 * Monolithic repository - like Google:) { https://research.google/pubs/pub45424/ }
