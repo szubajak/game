@@ -31,7 +31,7 @@ Full working solution with Infrastructure as Code to build and run it on Azure
     * Azure Resource Manager template - resource group definition with all resources needed to host it in Azure using App Service
     * Service Fabric project with environment definition
 * Clean Architecture - puts the business logic and application model at the center of the application
-* Clean Code - powered by Stylecop, Microsoft.FxCopAnalyzers, ESLint and Prettier
+* Clean Code - powered by Stylecop, FxCopAnalyzers, ESLint and Prettier
 * Monolithic repository - like Google:)\
 { https://research.google/pubs/pub45424/ }
 * CQRS - in your application can maximize its performance, scalability, and security\
