@@ -1,6 +1,6 @@
 # Advanced Template for modern .NET & React system #
 
-Solid fundamentals for new system or sub-system.
+Full working solution with infrastructure as a code to build and run it on Azure
 
 ### [back end] ###
 - .Net Core 3.1
