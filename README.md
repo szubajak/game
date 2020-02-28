@@ -1,7 +1,8 @@
-Advanced Template for modern .Net & React projects.
+# Advanced Template for modern .NET & React system #
+
 Solid fundamentals for new system or sub-system.
 
-[Back-end]
+### [back end] ###
 - .Net Core 3.1
 - Entity Framework Core
 - MediatR
@@ -14,7 +15,7 @@ Solid fundamentals for new system or sub-system.
 - NSubstitute
 - FluentAssertions
 
-[Front-end]
+### [front end] ###
 - React
 - Parcel
 - TypeScript
@@ -24,7 +25,7 @@ Solid fundamentals for new system or sub-system.
 - RxJS
 - Axios
 
-#### [General] ####
+### [general] ###
 * Infrastructure as Code (IaC):
     * Docker - every app has Dockerfile with build & run configuration
     * Azure Resource Manager template - resource group definition with all resources needed to host it in Azure using App Service
@@ -39,7 +40,7 @@ Solid fundamentals for new system or sub-system.
 { https://github.com/louthy/language-ext }\
 { https://zohaib.me/railway-programming-pattern-in-elixir/ }
 
-[In development]
+### [in development] ###
 - Docker Compose
 - Jens & Enzyme
 - Integration with Azure Functions asn external service
