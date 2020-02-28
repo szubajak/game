@@ -24,7 +24,7 @@ Solid fundamentals for new system or sub-system.
 - RxJS
 - Axios
 
-General\
+#### [General] ####
 * Infrastructure as Code (IaC):
     * Docker - every app has Dockerfile with build & run configuration
     * Azure Resource Manager template - resource group definition with all resources needed to host it in Azure using App Service
