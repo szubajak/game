@@ -33,12 +33,10 @@ Solid fundamentals for new system or sub-system.
 * Clean Code - powered by Stylecop, Microsoft.FxCopAnalyzers, ESLint and Prettier
 * Monolithic repository - like Google:)\
 { https://research.google/pubs/pub45424/ }
-
-* CQRS - implementing CQRS in your application can maximize its performance, scalability, and security
+* CQRS - implementing CQRS in your application can maximize its performance, scalability, and security\
 { https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs }
-
-* Railway Oriented Programming - powered by LanguageExt
-{ https://github.com/louthy/language-ext }
+* Railway Oriented Programming - powered by LanguageExt\
+{ https://github.com/louthy/language-ext }\
 { https://zohaib.me/railway-programming-pattern-in-elixir/ }
 
 [In development]
