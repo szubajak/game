@@ -40,11 +40,15 @@ Full working solution with Infrastructure as Code to build and run it on Azure
 { https://github.com/louthy/language-ext }\
 { https://zohaib.me/railway-programming-pattern-in-elixir/ }
 
-### [production;)] ###
+### [production] ###
 * Api
 { https://szubarga-game-api.azurewebsites.net/swagger/index.html }
 
+* Game UI
+{ https://szubarga-game-web.azurewebsites.net/ }
+
 ### [in development] ###
+- Better UX during GAME;)
 - Docker Compose
 - Jens & Enzyme
 - Integration with Azure Functions and external service
