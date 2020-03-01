@@ -75,10 +75,10 @@ namespace GameApi
             builder.RegisterTypes(types.WhereForce(InstanceForce.Transient)).AsImplementedInterfaces().InstancePerDependency();
         }
 
-        private static void SetupWebHost(IWebHostBuilder builder) => 
+        private static void SetupWebHost(IWebHostBuilder builder) =>
             builder.ConfigureServices(SetupServices)
                    .Configure(SetupApp)
-                   .UseUrls(Environment.GetEnvironmentVariable(AppEnvironment.ASPNETCORE_URLS) ?? "http://*:80");
+                   .UseUrls(Environment.GetEnvironmentVariable(AppEnvironment.ASPNETCORE_URLS));
 
         private static void SetupServices(IServiceCollection services)
         {

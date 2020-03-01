@@ -60,7 +60,7 @@
         private TryAsync<IQueryable<Card>> HandleQuery(GetCardsQuery request) =>
             TryAsync(_gameDb.Cards
                             .Skip(request.Offset ?? 0)
-                            .OrderBy(x => Guid.NewGuid())
+                            .OrderBy(x => request.Randomize ? new Random().Next() : x.Id)
                             .Take(request.Limit ?? DefaultLimit));
 
         private TryAsync<CardsDto> MapToDto(IQueryable<Card> cards) =>

@@ -1,7 +1,6 @@
 ﻿namespace GameUI
 {
     using System;
-
     using GameUI.Core.Statics;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -51,7 +50,7 @@
         private static void SetupWebHost(IWebHostBuilder builder) =>
             builder.ConfigureServices(SetupServices)
                    .Configure(SetupApp)
-                   .UseUrls(Environment.GetEnvironmentVariable(AppEnvironment.ASPNETCORE_URLS) ?? "http://*:80");
+                   .UseUrls(Environment.GetEnvironmentVariable(AppEnvironment.ASPNETCORE_URLS));
 
         private static void SetupServices(IServiceCollection services)
         {

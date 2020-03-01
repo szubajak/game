@@ -30,13 +30,11 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/index.html",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Staging",
-        "ASPNETCORE_URLS": "https://+:443;http://+:80",
-        "ASPNETCORE_HTTPS_PORT": "4438"
+        "ASPNETCORE_ENVIRONMENT": "Staging"
       },
-      "httpPort": 63564,
+      "httpPort": 51001,
       "useSSL": true,
-      "sslPort": 4438
+      "sslPort": 44381
     }
   }
 }
