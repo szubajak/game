@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { Container, Box } from '@material-ui/core'
+import { Container } from '@material-ui/core'
 
 export const StyledMainContainer = styled(Container)`
-    min-height: 900px;
+    min-width: 480px;
 `
 
 export const StyledMainGrid = styled.div`
@@ -10,10 +10,16 @@ export const StyledMainGrid = styled.div`
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: min-content auto min-content min-content;
+    grid-template-rows: min-content min-content auto min-content min-content;
 `
 
-export const StyledHeaderBox = styled(Box)`
-    text-align: right;
+export const StyledHeaderGrid = styled.div`
     background-color: #2e3e60;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media only screen and (max-width: 600px) {
+        grid-template-columns: auto;
+    }
 `

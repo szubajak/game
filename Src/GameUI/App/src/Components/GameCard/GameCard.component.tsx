@@ -1,20 +1,16 @@
 import * as React from 'react'
 import {
-    StyledHiddenGameCard,
-    StyledReadyToBattleGameCard,
-    StyledDefeatedGameCard,
-    StyledVictoriousGameCard,
+    StyledGameCard,
+    StyledHiddenCardContent,
+    StyledInBattleCardContent,
+    StyledInBattleFaceDownCardContent,
 } from './GameCard.styles'
-import { GameCard, Player, CardState } from '~/Core/Models'
-import { CardContent, Typography } from '@material-ui/core'
+import { GameCard, CardState, Player } from '~/Core/Models'
+import { Typography, Box } from '@material-ui/core'
 import { AppVM } from '~Core/AppViewModel'
 
 export const GameCardComponent: React.FC<GameCard> = card => {
-    const isExposed = (): boolean => {
-        return card.player !== Player.Croupier
-    }
-
-    const selectMe = (): void => AppVM.exposeNextGameCard(card.id)
+    const trySelectMe = (): void => AppVM.trySelectNextGameCard(card.id)
 
     const getSuit = (): string => {
         switch (card.suit) {
@@ -31,7 +27,27 @@ export const GameCardComponent: React.FC<GameCard> = card => {
         }
     }
 
-    const getColor = (): string => {
+    const getBackgroundColor = (): string => {
+        if (card.state !== CardState.FaceDown) {
+            return 'silver'
+        }
+
+        if (card.owner === Player.Black) {
+            return 'white'
+        }
+
+        return 'black'
+    }
+
+    const getFontColor = (): string => {
+        if (card.state === CardState.FaceDown) {
+            if (card.owner === Player.Black) {
+                return 'black'
+            }
+
+            return 'white'
+        }
+
         if (card.suit === 'Hearts' || card.suit === 'Diamonds') {
             return 'red'
         }
@@ -39,58 +55,50 @@ export const GameCardComponent: React.FC<GameCard> = card => {
         return 'black'
     }
 
-    const getPlayerColor = (): string => {
-        if (card.player === Player.Green) {
-            return 'green'
-        }
-
-        return 'blue'
-    }
-
-    if (!isExposed()) {
-        return (
-            <StyledHiddenGameCard onClick={selectMe}>
-                <CardContent>
-                    <Typography variant="h3">?</Typography>
-                </CardContent>
-            </StyledHiddenGameCard>
-        )
-    }
-
     const cardContent = (
-        <CardContent>
+        <Box className="card-face">
             <Typography variant="h3">{getSuit()}</Typography>
-            <Typography variant="h6">{card.value}</Typography>
-        </CardContent>
+            <Typography variant="h6">{card.name}</Typography>
+        </Box>
     )
 
-    switch (card.state) {
-        case CardState.Defeated:
-            return (
-                <StyledDefeatedGameCard
-                    color={getColor()}
-                    playercolor={getPlayerColor()}
-                >
-                    {cardContent}
-                </StyledDefeatedGameCard>
-            )
-        case CardState.Victorious:
-            return (
-                <StyledVictoriousGameCard
-                    color={getColor()}
-                    playercolor={getPlayerColor()}
-                >
-                    {cardContent}
-                </StyledVictoriousGameCard>
-            )
-        default:
-            return (
-                <StyledReadyToBattleGameCard
-                    color={getColor()}
-                    playercolor={getPlayerColor()}
-                >
-                    {cardContent}
-                </StyledReadyToBattleGameCard>
-            )
+    const getCardContent = (): JSX.Element => {
+        switch (card.state) {
+            case CardState.FaceDown:
+                return (
+                    <StyledHiddenCardContent fontcolor={getFontColor()}>
+                        <Box className="card-face">
+                            <Typography variant="h3">?</Typography>
+                        </Box>
+                    </StyledHiddenCardContent>
+                )
+            case CardState.InBattleFaceDown:
+                return (
+                    <StyledInBattleFaceDownCardContent
+                        fontcolor={getFontColor()}
+                    >
+                        <Box className="card-face">
+                            <Typography variant="h3">{'\u2694'}</Typography>
+                        </Box>
+                    </StyledInBattleFaceDownCardContent>
+                )
+            case CardState.InBattle:
+                return (
+                    <StyledInBattleCardContent fontcolor={getFontColor()}>
+                        {cardContent}
+                    </StyledInBattleCardContent>
+                )
+            default:
+                return <React.Fragment />
+        }
     }
+
+    return (
+        <StyledGameCard
+            backgroundcolor={getBackgroundColor()}
+            onClick={trySelectMe}
+        >
+            {getCardContent()}
+        </StyledGameCard>
+    )
 }

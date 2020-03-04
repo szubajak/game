@@ -22,7 +22,7 @@
       "launchUrl": "index.html",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_URLS": "http://localhost:8081"
+        "ASPNETCORE_URLS": "http://127.0.0.1:8081"
       }
     },
     "Docker": {

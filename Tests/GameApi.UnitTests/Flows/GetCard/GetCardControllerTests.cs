@@ -66,7 +66,7 @@
             { 
                 Id = id,
                 Suit = TestData.GetRandomString(),
-                Value = TestData.GetRandomString()
+                Name = TestData.GetRandomString()
             };
             var response = new OptionalResult<CardDto>(Some(cardDto));
 

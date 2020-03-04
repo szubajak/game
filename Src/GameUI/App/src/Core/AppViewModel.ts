@@ -1,27 +1,14 @@
-import { Subject } from 'rxjs'
-import { GameCard, Player } from './Models'
 import { GameEngine } from './GameEngine'
 
 class AppViewModel {
-    private _gameEngine: GameEngine = new GameEngine()
-    gameCards: Subject<Array<GameCard>> = new Subject<Array<GameCard>>()
-    greenScore: Subject<number> = new Subject<number>()
-    blueScore: Subject<number> = new Subject<number>()
+    gameEngine: GameEngine = new GameEngine()
 
     async startNewGame(): Promise<void> {
-        await this._gameEngine.startNewGame()
-        this.notifyChanges()
+        await this.gameEngine.startNewGame()
     }
 
-    exposeNextGameCard(id: number): void {
-        this._gameEngine.exposeNextGameCard(id)
-        this.notifyChanges()
-    }
-
-    private notifyChanges(): void {
-        this.gameCards.next(this._gameEngine.gameCards)
-        this.greenScore.next(this._gameEngine.getScore(Player.Green))
-        this.blueScore.next(this._gameEngine.getScore(Player.Blue))
+    trySelectNextGameCard(id: number): void {
+        this.gameEngine.trySelectNextGameCard(id)
     }
 }
 

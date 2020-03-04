@@ -3,6 +3,7 @@ import { Cards } from './Models'
 
 export const GameService = axios.create({
     baseURL: 'https://szubarga-game-api.azurewebsites.net',
+    //baseURL: 'http://localhost:8080',
     responseType: 'json',
 })
 

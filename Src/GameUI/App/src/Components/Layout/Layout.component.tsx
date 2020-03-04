@@ -4,17 +4,21 @@ import { NoSsr, CssBaseline, Box } from '@material-ui/core'
 import {
     StyledMainContainer,
     StyledMainGrid,
-    StyledHeaderBox,
+    StyledHeaderGrid,
 } from './Layout.styles'
 import {
     createMuiTheme,
     ThemeProvider as MuiThemeProvider,
     StylesProvider,
 } from '@material-ui/core/styles'
-import { LogoComponent } from '~/Components/Logo/Logo.component'
-import { AppBarComponent } from '~Components/AppBar/AppBar.component'
-import { GameBoardComponent } from '~Components/GameBoard/GameBoard.component'
-import { ScorePanelComponent } from '~Components/ScorePanel/ScorePanel.component'
+import {
+    LogoComponent,
+    AppTitleComponent,
+    GameBoardComponent,
+    StatePanelComponent,
+    AppBarComponent,
+    RulesPanelComponent,
+} from '~/Components/Aggregator'
 
 const gameTheme = createMuiTheme({
     palette: {
@@ -32,15 +36,17 @@ export const LayoutComponent: React.FunctionComponent = () => (
                 <ThemeProvider theme={gameTheme}>
                     <StyledMainContainer fixed>
                         <StyledMainGrid>
-                            <StyledHeaderBox>
+                            <StyledHeaderGrid>
+                                <AppTitleComponent />
                                 <LogoComponent />
-                            </StyledHeaderBox>
+                            </StyledHeaderGrid>
+                            <Box>
+                                <RulesPanelComponent />
+                            </Box>
                             <Box>
                                 <GameBoardComponent />
                             </Box>
-                            <Box>
-                                <ScorePanelComponent />
-                            </Box>
+                            <StatePanelComponent />
                             <AppBarComponent />
                         </StyledMainGrid>
                     </StyledMainContainer>

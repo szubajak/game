@@ -1,24 +1,52 @@
 export enum Player {
-    Green,
-    Blue,
-    Croupier,
+    White,
+    Black,
+}
+
+export enum BattleState {
+    WaitingForFighter,
+    WaitingForFaceDownFighter,
+    BlackWon,
+    WhiteWon,
 }
 
 export enum CardState {
     Victorious,
     Defeated,
-    ReadyToBattle,
+    FaceDown,
+    InBattle,
+    InBattleFaceDown,
+}
+
+export interface BackgroundColor {
+    backgroundcolor: string
+}
+
+export interface FontColor {
+    fontcolor: string
+}
+
+export interface GameBoard {
+    whiteCards: Array<GameCard>
+    blackCards: Array<GameCard>
+    infoMessage: string
+    someMethod: () => void
+}
+
+export interface CardsBattle {
+    fighters: Array<GameCard>
+    faceDownFighters: Array<GameCard>
 }
 
 export interface GameCard extends Card {
-    player: Player
     state: CardState
+    owner: Player
 }
 
 export type Card = {
     id: number
     suit: string
-    value: string
+    name: string
     power: number
 }
 

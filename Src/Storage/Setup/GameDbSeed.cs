@@ -29,8 +29,7 @@
                             {
                                 Id = list.Count + 1,
                                 Suit = suit,
-                                Value = value,
-                                Power = double.Parse($"{(int)value}.{(int)suit}", CultureInfo.InvariantCulture)
+                                Value = value
                             });
                         });
 
