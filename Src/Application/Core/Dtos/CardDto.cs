@@ -6,8 +6,8 @@
 
         public string? Suit { get; set; }
 
-        public string? Value { get; set; }
+        public string? Name { get; set; }
 
-        public double Power { get; set; }
+        public int Power { get; set; }
     }
 }

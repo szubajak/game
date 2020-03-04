@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
 export const StyledLogo = styled.img`
-    margin: 15px;
+    margin-right: 15px;
+    justify-self: end;
+    align-self: center;
+
+    @media only screen and (max-width: 600px) {
+        display: none;
+    }
 `

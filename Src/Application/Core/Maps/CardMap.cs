@@ -13,8 +13,11 @@
             AllowNullCollections = true;
             CreateMap<Card, CardDto>()
                 .ForMember(
-                    x => x.Value,
-                    opt => opt.MapFrom(src => MapCardValueToString(src.Value)));
+                    x => x.Name,
+                    opt => opt.MapFrom(src => MapCardValueToString(src.Value)))
+                .ForMember(
+                    x => x.Power,
+                    opt => opt.MapFrom(src => (int)src.Value));
         }
 
         private string MapCardValueToString(CardValue cardValue) =>
