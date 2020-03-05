@@ -7,3 +7,4 @@ dist
 *.csproj.user
 packages
 *.parameters.json
+pkg
