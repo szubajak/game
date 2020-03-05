@@ -9,20 +9,16 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-1903 AS build
 WORKDIR /src
-COPY ["GameApi/GameApi.csproj", "GameApi/"]
-COPY ["Application/Application.csproj", "Application/"]
-COPY ["Domain/Domain.csproj", "Domain/"]
-COPY ["Frame/Frame.csproj", "Frame/"]
-COPY ["Storage/Storage.csproj", "Storage/"]
-RUN dotnet restore "GameApi/GameApi.csproj"
+COPY ["AdminApi/AdminApi.csproj", "AdminApi/"]
+RUN dotnet restore "AdminApi/AdminApi.csproj"
 COPY . .
-WORKDIR /src/GameApi
-RUN dotnet build "GameApi.csproj" -c Release -o /app/build
+WORKDIR /src/AdminApi
+RUN dotnet build "AdminApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "GameApi.csproj" -c Release -o /app/publish
+RUN dotnet publish "AdminApi.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "GameApi.dll"]
+ENTRYPOINT ["dotnet", "AdminApi.dll"]

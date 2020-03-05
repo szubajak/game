@@ -43,6 +43,8 @@ Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "AzureResourceGroup", "DevOp
 EndProject
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "GameServiceFabric", "DevOps\GameServiceFabric\GameServiceFabric.sfproj", "{830996B6-C1E5-4651-9C5E-8C54F89F5CE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminApi", "Src\AdminApi\AdminApi.csproj", "{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +133,14 @@ Global
 		{830996B6-C1E5-4651-9C5E-8C54F89F5CE6}.Release|x64.ActiveCfg = Release|x64
 		{830996B6-C1E5-4651-9C5E-8C54F89F5CE6}.Release|x64.Build.0 = Release|x64
 		{830996B6-C1E5-4651-9C5E-8C54F89F5CE6}.Release|x64.Deploy.0 = Release|x64
+		{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680}.Debug|x64.Build.0 = Debug|Any CPU
+		{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680}.Release|x64.ActiveCfg = Release|Any CPU
+		{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -149,6 +159,7 @@ Global
 		{12B8459B-0F7B-4140-9BEA-C0E60D7C3CB1} = {22003CC9-685A-43B1-B75C-D846F6A448DA}
 		{77DD9436-62F1-414E-905D-CCBC8495A8EE} = {4D7B1F29-FF5C-47F5-BE62-6A70EC6017F3}
 		{830996B6-C1E5-4651-9C5E-8C54F89F5CE6} = {4D7B1F29-FF5C-47F5-BE62-6A70EC6017F3}
+		{386AF45F-2CEB-4FD9-81FC-68FDCC7F7680} = {4F49F50D-B88A-4D26-9F85-71408E74BDC5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0BE6EEE1-FB98-4903-80DF-C5E1EAE735D0}

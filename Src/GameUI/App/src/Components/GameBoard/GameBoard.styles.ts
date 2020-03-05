@@ -12,7 +12,7 @@ export const StyledGameBoard = styled.div`
 
 export const StyledPlayerBoard = styled(Paper)`
     margin: 1% auto;
-    height: 98%;
+    height: min-content;
     width: 95%;
     border-radius: 20px;
     display: grid;
@@ -24,7 +24,6 @@ export const StyledPlayerBoard = styled(Paper)`
 export const StyledCards = styled(Box)`
     height: 100%;
     width: 100%;
-    min-height: 400px;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -32,6 +31,7 @@ export const StyledCards = styled(Box)`
     justify-content: center;
     align-content: flex-start;
     align-items: flex-start;
+    overflow: visible;
 `
 
 export const StyledHeaderBox = styled(Box)`
@@ -40,7 +40,7 @@ export const StyledHeaderBox = styled(Box)`
 `
 
 export const StyledHeader = styled(Typography)`
-    margin: 20px auto;
-    font-size: x-large;
+    margin: 1vh auto;
+    font-size: 2vw;
     color: ${(props: FontColor): string => props.fontcolor};
 `

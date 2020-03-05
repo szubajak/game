@@ -4,16 +4,16 @@ import { BackgroundColor, FontColor } from '~/Core/Models'
 
 export const StyledGameCard = styled(Card)`
     text-align: center;
-    margin: 1%;
-    width: 100px;
-    height: 120px;
+    margin: 3px;
+    width: 6vw;
+    height: calc(6vw * 1.2);
     user-select: none;
     background-color: ${(props: BackgroundColor): string =>
         props.backgroundcolor};
 
-    @media only screen and (max-width: 600px) {
-        width: 80px;
-        height: 96px;
+    @media only screen and (min-width: 1600px) {
+        width: 4vw;
+        height: calc(4vw * 1.2);
     }
 `
 
@@ -21,8 +21,8 @@ const StyledCardContent = styled(CardContent)`
     width: 100%;
     height: 100%;
     color: ${(props: FontColor): string => props.fontcolor};
-    display: flex;
-    align-content: stretch;
+    display: grid;
+
     &:last-child {
         padding: 0px;
     }
@@ -31,10 +31,10 @@ const StyledCardContent = styled(CardContent)`
 export const StyledHiddenCardContent = styled(StyledCardContent)`
     cursor: pointer;
 
-    .card-face {
+    .back {
         align-self: center;
-        flex-grow: 1;
-        flex-shrink: 1;
+        justify-self: center;
+        font-size: 2vw;
     }
 
     &:hover {
@@ -62,14 +62,32 @@ export const StyledHiddenCardContent = styled(StyledCardContent)`
 `
 
 export const StyledInBattleCardContent = styled(StyledCardContent)`
-    .card-face {
+    grid-template-rows: 1fr 1fr;
+    animation-name: in-battle;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+
+    .suit {
         align-self: center;
-        flex-grow: 1;
-        flex-shrink: 1;
-        animation-name: in-battle;
-        animation-timing-function: linear;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
+        justify-self: center;
+        font-size: 2.2vw;
+    }
+
+    .value {
+        align-self: center;
+        justify-self: center;
+        font-size: 1.3vw;
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .suit {
+            font-size: 1.6vw;
+        }
+
+        .value {
+            font-size: 1vw;
+        }
     }
 
     @keyframes in-battle {
@@ -89,15 +107,10 @@ export const StyledInBattleCardContent = styled(StyledCardContent)`
 `
 
 export const StyledInBattleFaceDownCardContent = styled(StyledCardContent)`
-    .card-face {
-        align-self: center;
-        flex-grow: 1;
-        flex-shrink: 1;
-        animation-name: in-battle-face-down;
-        animation-timing-function: linear;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-    }
+    animation-name: in-battle-face-down;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 
     @keyframes in-battle-face-down {
         0% {
@@ -113,37 +126,10 @@ export const StyledInBattleFaceDownCardContent = styled(StyledCardContent)`
             transform: translateX(0);
         }
     }
-`
 
-export const StyledDefeatedGameCard = styled(StyledGameCard)`
-    background-color: lightgray;
-    cursor: auto;
-    div {
-        h3 {
-            transform: rotateZ(90deg);
-        }
-    }
-`
-
-export const StyledVictoriousGameCard = styled(StyledGameCard)`
-    background-color: lightgray;
-    cursor: auto;
-    div {
-        animation-name: victorious;
-        animation-timing-function: linear;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-    }
-
-    @keyframes victorious {
-        0% {
-            transform: translateX(0);
-        }
-        50% {
-            transform: translateY(6px);
-        }
-        100% {
-            transform: translateX(0);
-        }
+    .in-battle-face-down {
+        align-self: center;
+        justify-self: center;
+        font-size: 2vw;
     }
 `

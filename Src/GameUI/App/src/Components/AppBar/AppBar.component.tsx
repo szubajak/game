@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Toolbar, Button } from '@material-ui/core'
 import { AppVM } from '~Core/AppViewModel'
-import { AppBar } from '@material-ui/core'
+import { StyledAppBar } from './AppBar.styles'
 
 export const AppBarComponent: React.FunctionComponent = () => {
     const startNewGame = (): void => {
@@ -9,12 +9,12 @@ export const AppBarComponent: React.FunctionComponent = () => {
     }
 
     return (
-        <AppBar position="relative">
+        <StyledAppBar position="relative">
             <Toolbar>
                 <Button color="inherit" onClick={startNewGame}>
                     Start New Game
                 </Button>
             </Toolbar>
-        </AppBar>
+        </StyledAppBar>
     )
 }

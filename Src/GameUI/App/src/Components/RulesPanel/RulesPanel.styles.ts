@@ -3,18 +3,17 @@ import { ExpansionPanel, ExpansionPanelDetails } from '@material-ui/core'
 
 export const StyledRulesPanel = styled(ExpansionPanel)`
     && {
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
         width: 100%;
-        background-color: #2e3e60;
+        background-color: #e0ebeb;
         align-items: stretch;
+        box-shadow: none;
     }
 
     div {
         p {
             flex-grow: 1;
             flex-shrink: 1;
-            color: white;
+            color: black;
             align-self: center;
         }
 

@@ -6,7 +6,7 @@ import {
     StyledInBattleFaceDownCardContent,
 } from './GameCard.styles'
 import { GameCard, CardState, Player } from '~/Core/Models'
-import { Typography, Box } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import { AppVM } from '~Core/AppViewModel'
 
 export const GameCardComponent: React.FC<GameCard> = card => {
@@ -56,10 +56,10 @@ export const GameCardComponent: React.FC<GameCard> = card => {
     }
 
     const cardContent = (
-        <Box className="card-face">
-            <Typography variant="h3">{getSuit()}</Typography>
-            <Typography variant="h6">{card.name}</Typography>
-        </Box>
+        <React.Fragment>
+            <Typography className="suit">{getSuit()}</Typography>
+            <Typography className="value">{card.name}</Typography>
+        </React.Fragment>
     )
 
     const getCardContent = (): JSX.Element => {
@@ -67,9 +67,7 @@ export const GameCardComponent: React.FC<GameCard> = card => {
             case CardState.FaceDown:
                 return (
                     <StyledHiddenCardContent fontcolor={getFontColor()}>
-                        <Box className="card-face">
-                            <Typography variant="h3">?</Typography>
-                        </Box>
+                        <Typography className="back">?</Typography>
                     </StyledHiddenCardContent>
                 )
             case CardState.InBattleFaceDown:
@@ -77,9 +75,9 @@ export const GameCardComponent: React.FC<GameCard> = card => {
                     <StyledInBattleFaceDownCardContent
                         fontcolor={getFontColor()}
                     >
-                        <Box className="card-face">
-                            <Typography variant="h3">{'\u2694'}</Typography>
-                        </Box>
+                        <Typography className="in-battle-face-down">
+                            {'\u2694'}
+                        </Typography>
                     </StyledInBattleFaceDownCardContent>
                 )
             case CardState.InBattle:

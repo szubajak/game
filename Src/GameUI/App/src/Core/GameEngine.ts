@@ -50,6 +50,7 @@ export class GameEngine {
 
         this._currentPlayer = this.nextPlayer()
         this._status = this.getStatus()
+        this.notifyChanges()
     }
 
     private notifyChanges(): void {
@@ -59,7 +60,6 @@ export class GameEngine {
 
     private goFight = (fighter: GameCard): void => {
         const battleState = this.getBattleState()
-        console.log(BattleState[battleState])
 
         if (battleState === BattleState.WaitingForFaceDownFighter) {
             fighter.state = CardState.InBattleFaceDown
@@ -79,7 +79,6 @@ export class GameEngine {
 
     private checkBattleResult = (): void => {
         const battleState = this.getBattleState()
-        console.log(BattleState[battleState])
 
         if (
             battleState === BattleState.BlackWon ||
@@ -181,7 +180,6 @@ export class GameEngine {
         }
 
         const gameWinner = this.getGameWinner()
-
         if (gameWinner != null) {
             return 'player ' + gameWinner + 'has won the game!'
         }

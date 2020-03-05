@@ -12,7 +12,7 @@ export const RulesPanelComponent: React.FC = () => {
     return (
         <StyledRulesPanel>
             <ExpansionPanelSummary
-                expandIcon={<ExpandMore style={{ color: 'white' }} />}
+                expandIcon={<ExpandMore style={{ color: 'black' }} />}
             >
                 <Typography className="icons">{getSuitPowerOrder()}</Typography>
                 <Typography className="header">Rules</Typography>
