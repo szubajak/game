@@ -1,22 +1,23 @@
 import * as React from 'react'
 import {
-    StyledRulesPanel,
+    StyledRulesExpansionPanel,
     StyledExpansionPanelDetails,
+    StyledExpansionPanelSummary,
 } from './RulesPanel.styles'
-import { ExpansionPanelSummary, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import { ExpandMore } from '@material-ui/icons'
 
 export const RulesPanelComponent: React.FC = () => {
     const getSuitPowerOrder = (): string => '\u2665 \u2666 \u2694 \u2660 \u2663'
 
     return (
-        <StyledRulesPanel>
-            <ExpansionPanelSummary
+        <StyledRulesExpansionPanel>
+            <StyledExpansionPanelSummary
                 expandIcon={<ExpandMore style={{ color: 'black' }} />}
             >
                 <Typography className="icons">{getSuitPowerOrder()}</Typography>
                 <Typography className="header">Rules</Typography>
-            </ExpansionPanelSummary>
+            </StyledExpansionPanelSummary>
             <StyledExpansionPanelDetails>
                 <Typography variant="h5">
                     The goal is to be the first player to win all 52 cards
@@ -43,6 +44,6 @@ export const RulesPanelComponent: React.FC = () => {
                     The game ends when one player has won all the cards.
                 </Typography>
             </StyledExpansionPanelDetails>
-        </StyledRulesPanel>
+        </StyledRulesExpansionPanel>
     )
 }

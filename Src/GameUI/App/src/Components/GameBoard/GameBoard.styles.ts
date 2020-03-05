@@ -5,7 +5,6 @@ import { BackgroundColor, FontColor } from '~/Core/Models'
 export const StyledGameBoard = styled.div`
     height: 100%;
     width: 100%;
-    min-height: 400px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 `
@@ -31,7 +30,7 @@ export const StyledCards = styled(Box)`
     justify-content: center;
     align-content: flex-start;
     align-items: flex-start;
-    overflow: visible;
+    overflow: hidden;
 `
 
 export const StyledHeaderBox = styled(Box)`

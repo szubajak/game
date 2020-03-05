@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const StyledMainGrid = styled.div`
     width: 100vw;
     height: 100vh;
-    min-height: 500px;
+    overflow: scroll;
+    overflow-x: hidden;
     user-select: none;
     background-color: #e0ebeb;
     display: grid;

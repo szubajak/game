@@ -9,7 +9,7 @@ export const AppBarComponent: React.FunctionComponent = () => {
     }
 
     return (
-        <StyledAppBar position="relative">
+        <StyledAppBar position="static">
             <Toolbar>
                 <Button color="inherit" onClick={startNewGame}>
                     Start New Game

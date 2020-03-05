@@ -1,31 +1,30 @@
 import styled from 'styled-components'
-import { ExpansionPanel, ExpansionPanelDetails } from '@material-ui/core'
+import {
+    ExpansionPanel,
+    ExpansionPanelDetails,
+    ExpansionPanelSummary,
+} from '@material-ui/core'
 
-export const StyledRulesPanel = styled(ExpansionPanel)`
+export const StyledRulesExpansionPanel = styled(ExpansionPanel)`
     && {
         width: 100%;
         background-color: #e0ebeb;
         align-items: stretch;
         box-shadow: none;
     }
+`
 
-    div {
-        p {
-            flex-grow: 1;
-            flex-shrink: 1;
-            color: black;
-            align-self: center;
-        }
+export const StyledExpansionPanelSummary = styled(ExpansionPanelSummary)`
+    p {
+        flex-grow: 1;
+        flex-shrink: 1;
+        color: black;
+        align-self: center;
+        font-size: 1.6vw;
+    }
 
-        .header {
-            font-size: medium;
-            text-align: right;
-        }
-
-        .icons {
-            align-self: center;
-            font-size: xx-large;
-        }
+    .header {
+        text-align: right;
     }
 `
 
