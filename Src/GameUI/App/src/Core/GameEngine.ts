@@ -41,7 +41,7 @@ export class GameEngine {
     }
 
     trySelectNextGameCard = (id: number): void => {
-        if (this._holdTheGame) return
+        if (this._holdTheGame && this._currentPlayer === Player.White) return
 
         const selectedCard = this.getCard(id)
         if (!selectedCard) return
@@ -51,9 +51,25 @@ export class GameEngine {
         this._currentPlayer = this.nextPlayer()
         this._status = this.getStatus()
         this.notifyChanges()
+
+        if (this._currentPlayer === Player.Black) {
+            this._holdTheGame = true
+            const randomId = this.getNextRandomCardId(
+                this._gameBoard.blackCards
+            )
+
+            setTimeout(this.trySelectNextGameCard, 500, randomId)
+        }
+
+        if (this._holdTheGame && this._currentPlayer === Player.Black) {
+            this._holdTheGame = false
+        }
     }
 
-    private notifyChanges(): void {
+    private getNextRandomCardId = (cards: Array<GameCard>): number =>
+        cards[Math.floor(Math.random() * cards.length)].id
+
+    private notifyChanges = (): void => {
         this.status.next(this._status)
         this.gameBoard.next(this._gameBoard)
     }
@@ -88,7 +104,7 @@ export class GameEngine {
 
             setTimeout(
                 this.clearBattlefield,
-                500,
+                1000,
                 battleState === BattleState.BlackWon
                     ? Player.Black
                     : Player.White
@@ -97,7 +113,6 @@ export class GameEngine {
     }
 
     private clearBattlefield = (winner: Player): void => {
-        console.log(Player[winner])
         this.distributeCards(
             [...this._battle.fighters, ...this._battle.faceDownFighters],
             winner
@@ -252,6 +267,7 @@ export class GameEngine {
                 name: card.name,
                 state: CardState.FaceDown,
                 owner: player,
+                icon: card.icon,
             } as GameCard
         }
 

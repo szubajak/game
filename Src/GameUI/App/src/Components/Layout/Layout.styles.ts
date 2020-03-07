@@ -6,7 +6,6 @@ export const StyledMainGrid = styled.div`
     overflow: scroll;
     overflow-x: hidden;
     user-select: none;
-    background-color: #e0ebeb;
     display: grid;
-    grid-template-rows: min-content min-content auto min-content min-content;
+    grid-template-rows: min-content auto min-content min-content min-content;
 `

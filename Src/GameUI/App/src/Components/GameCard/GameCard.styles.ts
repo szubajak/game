@@ -1,94 +1,58 @@
 import styled from 'styled-components'
-import { Card, CardContent } from '@material-ui/core'
-import { BackgroundColor, FontColor } from '~/Core/Models'
+import { Paper, Typography } from '@material-ui/core'
+import { FontColor } from '~/Core/Models'
 
-export const StyledGameCard = styled(Card)`
-    text-align: center;
-    margin: 3px;
-    width: 6vw;
-    height: calc(6vw * 1.2);
-    user-select: none;
-    background-color: ${(props: BackgroundColor): string =>
-        props.backgroundcolor};
-
-    @media only screen and (min-width: 1600px) {
-        width: 4vw;
-        height: calc(4vw * 1.2);
-    }
-`
-
-const StyledCardContent = styled(CardContent)`
-    width: 100%;
-    height: 100%;
-    color: ${(props: FontColor): string => props.fontcolor};
-    display: grid;
-
-    &:last-child {
-        padding: 0px;
-    }
-`
-
-export const StyledHiddenCardContent = styled(StyledCardContent)`
-    cursor: pointer;
-
-    .back {
-        align-self: center;
-        justify-self: center;
-        font-size: 2vw;
+export const StyledGameCard = styled(Paper)`
+    && {
+        margin: 10px;
+        padding: 0;
+        border-radius: 2px;
+        user-select: none;
+        overflow: visible;
+        flex: 0 0 auto;
+        background-color: transparent;
+        box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+        transition: 0.3s;
     }
 
     &:hover {
-        color: orange;
-        animation-name: hover;
-        animation-timing-function: linear;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
+        transform: translateY(2px);
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 20px 0px;
+    }
+`
+const StyledCard = styled(Typography)`
+    user-select: none;
+    font-size: 7vw;
+    line-height: 7vw;
+    text-align: center;
 
-        @keyframes hover {
-            0% {
-                transform: translate(0, 0);
-            }
-            20% {
-                transform: scale(1.2, 1.2);
-            }
-            40% {
-                transform: skew(20deg, 5deg);
-            }
-            80% {
-                transform: skew(-20deg, -5deg);
-            }
-        }
+    @media only screen and (min-width: 1700px) {
+        font-size: 6vw;
+        line-height: 6vw;
+    }
+
+    @media only screen and (max-width: 500px) {
+        font-size: 10vw;
+        line-height: 10vw;
     }
 `
 
-export const StyledInBattleCardContent = styled(StyledCardContent)`
-    grid-template-rows: 1fr 1fr;
+export const StyledCardFaceDown = styled(StyledCard)`
+    color: darkblue;
+    cursor: pointer;
+`
+
+export const StyledCardInBattleFaceDown = styled(StyledCard)`
+    color: red;
+`
+
+export const StyledCardFaceUp = styled(StyledCard)`
+    color: ${(props: FontColor): string => props.fontcolor};
+    overflow: hidden;
     animation-name: in-battle;
     animation-timing-function: linear;
     animation-duration: 1s;
     animation-iteration-count: infinite;
-
-    .suit {
-        align-self: center;
-        justify-self: center;
-        font-size: 2.2vw;
-    }
-
-    .value {
-        align-self: center;
-        justify-self: center;
-        font-size: 1.3vw;
-    }
-
-    @media only screen and (min-width: 1600px) {
-        .suit {
-            font-size: 1.6vw;
-        }
-
-        .value {
-            font-size: 1vw;
-        }
-    }
 
     @keyframes in-battle {
         0% {
@@ -103,33 +67,5 @@ export const StyledInBattleCardContent = styled(StyledCardContent)`
         100% {
             transform: translateX(0);
         }
-    }
-`
-
-export const StyledInBattleFaceDownCardContent = styled(StyledCardContent)`
-    animation-name: in-battle-face-down;
-    animation-timing-function: linear;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-
-    @keyframes in-battle-face-down {
-        0% {
-            transform: translateX(0);
-        }
-        33% {
-            transform: translateX(6px);
-        }
-        66% {
-            transform: translateX(-6px);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-
-    .in-battle-face-down {
-        align-self: center;
-        justify-self: center;
-        font-size: 2vw;
     }
 `

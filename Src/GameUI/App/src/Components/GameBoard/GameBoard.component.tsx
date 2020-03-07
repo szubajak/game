@@ -25,16 +25,16 @@ export const GameBoardComponent: React.FunctionComponent = () => {
         })
     })
 
+    const getScore = (player: Player): number => {
+        return player === Player.White ? whiteScore : blackScore
+    }
+
     const getBackgroundColor = (player: Player): string => {
         return player === Player.White ? 'white' : 'black'
     }
 
-    const getFontColor = (player: Player): string => {
+    const getColor = (player: Player): string => {
         return player === Player.White ? 'black' : 'white'
-    }
-
-    const getScore = (player: Player): number => {
-        return player === Player.White ? whiteScore : blackScore
     }
 
     const getPlayerBoard = (
@@ -43,15 +43,16 @@ export const GameBoardComponent: React.FunctionComponent = () => {
     ): JSX.Element => {
         return (
             <StyledPlayerBoard
-                backgroundcolor={getBackgroundColor(player)}
+                variant="elevation"
                 elevation={6}
+                bordercolor={getColor(player)}
             >
-                <StyledHeaderBox>
-                    <StyledHeader fontcolor={getFontColor(player)}>
+                <StyledHeaderBox backgroundcolor={getBackgroundColor(player)}>
+                    <StyledHeader fontcolor={getColor(player)}>
                         {Player[player]}
                     </StyledHeader>
                 </StyledHeaderBox>
-                <StyledCards>
+                <StyledCards variant="outlined">
                     {cards.map(gameCard => (
                         <GameCardComponent
                             key={gameCard.id}
@@ -61,11 +62,12 @@ export const GameBoardComponent: React.FunctionComponent = () => {
                             power={gameCard.power}
                             state={gameCard.state}
                             owner={gameCard.owner}
+                            icon={gameCard.icon}
                         />
                     ))}
                 </StyledCards>
-                <StyledHeaderBox>
-                    <StyledHeader fontcolor={getFontColor(player)}>
+                <StyledHeaderBox backgroundcolor={getBackgroundColor(player)}>
+                    <StyledHeader fontcolor={getColor(player)}>
                         {getScore(player)}
                     </StyledHeader>
                 </StyledHeaderBox>

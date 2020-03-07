@@ -18,6 +18,10 @@ export enum CardState {
     InBattleFaceDown,
 }
 
+export interface BorderColor {
+    bordercolor: string
+}
+
 export interface BackgroundColor {
     backgroundcolor: string
 }
@@ -48,6 +52,7 @@ export type Card = {
     suit: string
     name: string
     power: number
+    icon: string
 }
 
 export type Cards = {

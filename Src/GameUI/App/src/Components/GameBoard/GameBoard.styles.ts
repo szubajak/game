@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Paper, Box, Typography } from '@material-ui/core'
-import { BackgroundColor, FontColor } from '~/Core/Models'
+import { FontColor, BackgroundColor, BorderColor } from '~/Core/Models'
 
 export const StyledGameBoard = styled.div`
     height: 100%;
@@ -10,36 +10,36 @@ export const StyledGameBoard = styled.div`
 `
 
 export const StyledPlayerBoard = styled(Paper)`
-    margin: 1% auto;
-    height: min-content;
+    margin: 10px auto auto auto;
+    height: auto;
     width: 95%;
     border-radius: 20px;
     display: grid;
     grid-template-rows: min-content 1fr min-content;
-    background-color: ${(props: BackgroundColor): string =>
-        props.backgroundcolor};
+    overflow: hidden;
+    border: 2px solid ${(props: BorderColor): string => props.bordercolor};
 `
 
-export const StyledCards = styled(Box)`
+export const StyledCards = styled(Paper)`
     height: 100%;
     width: 100%;
-    margin: auto;
+    background: white;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: flex-start;
     align-items: flex-start;
-    overflow: hidden;
+    align-content: flex-start;
 `
 
 export const StyledHeaderBox = styled(Box)`
+    background-color: ${(props: BackgroundColor): string =>
+        props.backgroundcolor};
     width: 100%;
     text-align: center;
 `
 
 export const StyledHeader = styled(Typography)`
     margin: 1vh auto;
-    font-size: 2vw;
+    font-size: 20px;
     color: ${(props: FontColor): string => props.fontcolor};
 `

@@ -13,6 +13,8 @@
                 .IsRequired();
             builder.Property(x => x.Value)
                 .IsRequired();
+            builder.Property(x => x.Icon)
+                .IsRequired();
         }
     }
 }

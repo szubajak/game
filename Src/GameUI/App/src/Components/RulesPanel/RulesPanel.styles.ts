@@ -3,28 +3,33 @@ import {
     ExpansionPanel,
     ExpansionPanelDetails,
     ExpansionPanelSummary,
+    Typography,
+    Box,
 } from '@material-ui/core'
+import { FontColor } from '~/Core/Models'
 
 export const StyledRulesExpansionPanel = styled(ExpansionPanel)`
     && {
         width: 100%;
-        background-color: #e0ebeb;
+        background-color: silver;
         align-items: stretch;
         box-shadow: none;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border: 20px 0 0 0;
     }
 `
 
 export const StyledExpansionPanelSummary = styled(ExpansionPanelSummary)`
-    p {
-        flex-grow: 1;
-        flex-shrink: 1;
-        color: black;
-        align-self: center;
-        font-size: 1.6vw;
+    && {
+        width: 100%;
     }
 
-    .header {
-        text-align: right;
+    div {
+        justify-content: space-evenly;
+        align-items: stretch;
     }
 `
 
@@ -34,21 +39,42 @@ export const StyledExpansionPanelDetails = styled(ExpansionPanelDetails)`
         align-items: stretch;
         flex-wrap: wrap;
     }
+`
 
-    h5,
-    h6 {
-        flex: 1 0 100%;
-        margin: 4px 0;
+export const StyledIcons = styled(Box)`
+    text-align: left;
+    flex: 1 1 30%;
+`
+
+export const StyledIconText = styled.span`
+    color: ${(props: FontColor): string => props.fontcolor};
+    font-size: 20px;
+
+    @media only screen and (max-width: 500px) {
+        font-size: 10px;
     }
+`
 
-    h5 {
-        color: lightblue;
+export const StyledStatusText = styled(Typography)`
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: darkblue;
+    flex: 1 1 30%;
+
+    @media only screen and (max-width: 500px) {
+        font-size: 10px;
     }
+`
 
-    h6 {
-        color: white;
-    }
+export const StyledText = styled(Typography)`
+    user-select: none;
+    font-size: 20px;
+    color: darkblue;
+    text-align: right;
+    flex: 1 1 30%;
 
-    p {
+    @media only screen and (max-width: 500px) {
+        font-size: 10px;
     }
 `

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const StyledHeaderGrid = styled.div`
     width: 100%;
     display: grid;
+    background-color: silver;
 
     p {
         color: black;
@@ -42,7 +43,7 @@ export const StyledHeaderGrid = styled.div`
 
     @media only screen and (min-width: 1600px) {
         p {
-            font-size: 1vw;
+            font-size: 30px;
         }
     }
 `

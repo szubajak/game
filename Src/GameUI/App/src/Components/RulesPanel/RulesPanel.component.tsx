@@ -3,20 +3,44 @@ import {
     StyledRulesExpansionPanel,
     StyledExpansionPanelDetails,
     StyledExpansionPanelSummary,
+    StyledIconText,
+    StyledText,
+    StyledStatusText,
+    StyledIcons,
 } from './RulesPanel.styles'
-import { Typography } from '@material-ui/core'
-import { ExpandMore } from '@material-ui/icons'
+import { Typography, Box } from '@material-ui/core'
+import { ExpandLess } from '@material-ui/icons'
+import { AppVM } from '~Core/AppViewModel'
 
 export const RulesPanelComponent: React.FC = () => {
-    const getSuitPowerOrder = (): string => '\u2665 \u2666 \u2694 \u2660 \u2663'
+    const [status, setStatus] = React.useState('game is not started')
+
+    React.useEffect(() => {
+        AppVM.gameEngine.status.subscribe(newStatus => {
+            setStatus(newStatus)
+        })
+    })
 
     return (
         <StyledRulesExpansionPanel>
             <StyledExpansionPanelSummary
-                expandIcon={<ExpandMore style={{ color: 'black' }} />}
+                expandIcon={<ExpandLess style={{ color: 'black' }} />}
             >
-                <Typography className="icons">{getSuitPowerOrder()}</Typography>
-                <Typography className="header">Rules</Typography>
+                <StyledIcons>
+                    <StyledIconText fontcolor="red">{'\u2665'}</StyledIconText>
+                    <StyledIconText fontcolor="red">{'\u2666'}</StyledIconText>
+                    <StyledIconText fontcolor="darkblue">
+                        {'\u2694'}
+                    </StyledIconText>
+                    <StyledIconText fontcolor="black">
+                        {'\u2660'}
+                    </StyledIconText>
+                    <StyledIconText fontcolor="black">
+                        {'\u2663'}
+                    </StyledIconText>
+                </StyledIcons>
+                <StyledStatusText>{status}</StyledStatusText>
+                <StyledText>Rules</StyledText>
             </StyledExpansionPanelSummary>
             <StyledExpansionPanelDetails>
                 <Typography variant="h5">

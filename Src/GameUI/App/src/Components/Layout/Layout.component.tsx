@@ -9,13 +9,19 @@ import {
 } from '@material-ui/core/styles'
 import {
     GameBoardComponent,
-    StatePanelComponent,
     AppBarComponent,
     RulesPanelComponent,
     HeaderComponent,
 } from '~/Components/Aggregator'
 
 const gameTheme = createMuiTheme({
+    typography: {
+        fontFamily: '"Arial", sans-serif',
+        fontSize: 14,
+        fontWeightLight: 300,
+        fontWeightRegular: 400,
+        fontWeightMedium: 500,
+    },
     palette: {
         primary: {
             main: '#6772e5',
@@ -31,11 +37,10 @@ export const LayoutComponent: React.FunctionComponent = () => (
                 <ThemeProvider theme={gameTheme}>
                     <StyledMainGrid>
                         <HeaderComponent />
+                        <GameBoardComponent />
                         <Box>
                             <RulesPanelComponent />
                         </Box>
-                        <GameBoardComponent />
-                        <StatePanelComponent />
                         <AppBarComponent />
                     </StyledMainGrid>
                 </ThemeProvider>
