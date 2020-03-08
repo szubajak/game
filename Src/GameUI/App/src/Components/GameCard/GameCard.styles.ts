@@ -1,44 +1,78 @@
 import styled from 'styled-components'
-import { Paper, Typography } from '@material-ui/core'
+import { Typography, Box } from '@material-ui/core'
 import { FontColor } from '~/Core/Models'
 
-export const StyledGameCard = styled(Paper)`
+export const StyledGameCard = styled(Box)`
     && {
-        margin: 10px;
         padding: 0;
-        border-radius: 2px;
         user-select: none;
         overflow: visible;
         flex: 0 0 auto;
         background-color: transparent;
-        box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
         transition: 0.3s;
+
+        @media only screen and (max-width: 400px) {
+            margin: 3px;
+        }
+
+        @media only screen and (min-width: 401px) {
+            margin: 4px;
+        }
+
+        @media only screen and (min-width: 1000px) {
+            margin: 5px;
+        }
+
+        @media only screen and (min-width: 1600px) {
+            margin: 6px;
+        }
+
+        @media only screen and (min-width: 2400px) {
+            margin: 10px;
+        }
     }
 
     &:hover {
         transform: translateY(2px);
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 20px 0px;
     }
 `
 const StyledCard = styled(Typography)`
     user-select: none;
-    font-size: 7vw;
-    line-height: 7vw;
     text-align: center;
 
-    @media only screen and (min-width: 1700px) {
-        font-size: 6vw;
-        line-height: 6vw;
+    @media only screen and (max-width: 400px) {
+        font-size: 50px;
+        line-height: 50px;
     }
 
-    @media only screen and (max-width: 500px) {
-        font-size: 10vw;
-        line-height: 10vw;
+    @media only screen and (min-width: 401px) {
+        font-size: 70px;
+        line-height: 70px;
+    }
+
+    @media only screen and (min-width: 1000px) {
+        font-size: 100px;
+        line-height: 100px;
+    }
+
+    @media only screen and (min-width: 1600px) {
+        font-size: 110px;
+        line-height: 110px;
+    }
+
+    @media only screen and (min-width: 1900px) {
+        font-size: 130px;
+        line-height: 130px;
+    }
+
+    @media only screen and (min-width: 2400px) {
+        font-size: 200px;
+        line-height: 200px;
     }
 `
 
 export const StyledCardFaceDown = styled(StyledCard)`
-    color: darkblue;
+    color: #011b56;
     cursor: pointer;
 `
 

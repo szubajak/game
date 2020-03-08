@@ -274,11 +274,11 @@ export class GameEngine {
         const shuffledCards = this.shuffleCards(this._cards)
 
         const whiteCards = shuffledCards
-            .slice(0, 26)
+            .slice(0, 28)
             .map(card => resetCard(card, Player.White))
 
         const blackCards = shuffledCards
-            .slice(26, 52)
+            .slice(28, 56)
             .map(card => resetCard(card, Player.Black))
 
         this._gameBoard = this.createNewGameBoard(whiteCards, blackCards)
@@ -292,9 +292,6 @@ export class GameEngine {
         return {
             whiteCards: whiteCards,
             blackCards: blackCards,
-            someMethod: () => {
-                return
-            },
         } as GameBoard
     }
 

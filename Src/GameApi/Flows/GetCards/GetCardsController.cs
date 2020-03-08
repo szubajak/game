@@ -15,7 +15,7 @@
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status502BadGateway)]
-        public async Task<IActionResult> Execute(int? limit, int? offset, bool randomize = true) =>
+        public async Task<IActionResult> Execute(int? limit, int? offset, bool randomize = false) =>
             (await Mediator.Send(new GetCardsQuery
             {
                Limit = limit,

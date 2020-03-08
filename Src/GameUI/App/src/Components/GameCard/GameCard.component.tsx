@@ -48,7 +48,7 @@ export const GameCardComponent: React.FC<GameCard> = card => {
     }
 
     return (
-        <StyledGameCard onClick={trySelectMe} elevation={6}>
+        <StyledGameCard onClick={trySelectMe}>
             {getCardContent()}
         </StyledGameCard>
     )

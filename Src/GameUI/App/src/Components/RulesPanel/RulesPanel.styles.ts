@@ -4,7 +4,7 @@ import {
     ExpansionPanelDetails,
     ExpansionPanelSummary,
     Typography,
-    Box,
+    Link,
 } from '@material-ui/core'
 import { FontColor } from '~/Core/Models'
 
@@ -14,11 +14,10 @@ export const StyledRulesExpansionPanel = styled(ExpansionPanel)`
         background-color: silver;
         align-items: stretch;
         box-shadow: none;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
         border-bottom-right-radius: 0px;
         border-bottom-left-radius: 0px;
-        border: 20px 0 0 0;
     }
 `
 
@@ -41,38 +40,74 @@ export const StyledExpansionPanelDetails = styled(ExpansionPanelDetails)`
     }
 `
 
-export const StyledIcons = styled(Box)`
+export const StyledStatus = styled(Typography)`
     text-align: left;
-    flex: 1 1 30%;
-`
-
-export const StyledIconText = styled.span`
-    color: ${(props: FontColor): string => props.fontcolor};
-    font-size: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #011b56;
+    flex: 1 1 50%;
 
     @media only screen and (max-width: 500px) {
         font-size: 10px;
     }
 `
 
-export const StyledStatusText = styled(Typography)`
-    text-align: center;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: darkblue;
+export const StyledLabel = styled(Typography)`
+    user-select: none;
+    font-size: 20px;
+    color: #011b56;
+    text-align: right;
     flex: 1 1 30%;
 
     @media only screen and (max-width: 500px) {
         font-size: 10px;
+    }
+`
+
+export const StyledIcon = styled.span`
+    color: ${(props: FontColor): string => props.fontcolor};
+    font-size: 20px;
+    margin: 4px;
+
+    @media only screen and (max-width: 500px) {
+        font-size: 14px;
+    }
+`
+
+export const StyledHeader = styled(Typography)`
+    font-size: 20px;
+    color: #011b56;
+    width: 100%;
+    margin: 2px auto;
+
+    @media only screen and (max-width: 500px) {
+        font-size: 12px;
+    }
+`
+
+export const StyledLink = styled(Link)`
+    font-size: 20px;
+    width: 100%;
+
+    @media only screen and (max-width: 500px) {
+        font-size: 14px;
+    }
+`
+
+export const StyledSubHeader = styled(Typography)`
+    font-size: 16px;
+    color: #0269a4;
+    width: 100%;
+    margin: 2px auto;
+
+    @media only screen and (max-width: 500px) {
+        font-size: 12px;
     }
 `
 
 export const StyledText = styled(Typography)`
-    user-select: none;
-    font-size: 20px;
-    color: darkblue;
-    text-align: right;
-    flex: 1 1 30%;
+    font-size: 16px;
+    width: 100%;
 
     @media only screen and (max-width: 500px) {
         font-size: 10px;

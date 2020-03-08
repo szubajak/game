@@ -6,24 +6,24 @@ export const StyledHeaderGrid = styled.div`
     background-color: silver;
 
     p {
-        color: black;
+        color: #011b56;
         margin: 10px;
     }
 
     @media only screen and (max-width: 400px) {
-        grid-template-rows: min-content min-content;
+        grid-template-rows: auto auto;
 
         p {
-            font-size: 5vw;
+            font-size: 12px;
             justify-self: center;
         }
     }
 
     @media only screen and (min-width: 401px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr max-content;
 
         p {
-            font-size: 4vw;
+            font-size: 14px;
         }
 
         .app-name {
@@ -37,7 +37,7 @@ export const StyledHeaderGrid = styled.div`
 
     @media only screen and (min-width: 1000px) {
         p {
-            font-size: 3vw;
+            font-size: 20px;
         }
     }
 

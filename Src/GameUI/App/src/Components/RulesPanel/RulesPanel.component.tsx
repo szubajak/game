@@ -3,12 +3,14 @@ import {
     StyledRulesExpansionPanel,
     StyledExpansionPanelDetails,
     StyledExpansionPanelSummary,
-    StyledIconText,
+    StyledIcon,
+    StyledLabel,
+    StyledStatus,
+    StyledHeader,
+    StyledLink,
     StyledText,
-    StyledStatusText,
-    StyledIcons,
+    StyledSubHeader,
 } from './RulesPanel.styles'
-import { Typography, Box } from '@material-ui/core'
 import { ExpandLess } from '@material-ui/icons'
 import { AppVM } from '~Core/AppViewModel'
 
@@ -24,35 +26,30 @@ export const RulesPanelComponent: React.FC = () => {
     return (
         <StyledRulesExpansionPanel>
             <StyledExpansionPanelSummary
-                expandIcon={<ExpandLess style={{ color: 'black' }} />}
+                expandIcon={<ExpandLess style={{ color: 'darkblue' }} />}
             >
-                <StyledIcons>
-                    <StyledIconText fontcolor="red">{'\u2665'}</StyledIconText>
-                    <StyledIconText fontcolor="red">{'\u2666'}</StyledIconText>
-                    <StyledIconText fontcolor="darkblue">
-                        {'\u2694'}
-                    </StyledIconText>
-                    <StyledIconText fontcolor="black">
-                        {'\u2660'}
-                    </StyledIconText>
-                    <StyledIconText fontcolor="black">
-                        {'\u2663'}
-                    </StyledIconText>
-                </StyledIcons>
-                <StyledStatusText>{status}</StyledStatusText>
-                <StyledText>Rules</StyledText>
+                <StyledStatus>{status}</StyledStatus>
+                <StyledLabel>Info</StyledLabel>
             </StyledExpansionPanelSummary>
             <StyledExpansionPanelDetails>
-                <Typography variant="h5">
+                <StyledLink href="https://github.com/szubajak/game">
+                    Link to GitHub repository
+                </StyledLink>
+                <StyledIcon fontcolor="red">{'\u2665'}</StyledIcon>
+                <StyledIcon fontcolor="red">{'\u2666'}</StyledIcon>
+                <StyledIcon fontcolor="darkblue">{'\u2694'}</StyledIcon>
+                <StyledIcon fontcolor="black">{'\u2660'}</StyledIcon>
+                <StyledIcon fontcolor="black">{'\u2663'}</StyledIcon>
+                <StyledHeader>
                     The goal is to be the first player to win all 52 cards
-                </Typography>
-                <Typography variant="h6">THE DEAL</Typography>
-                <Typography variant="body1">
+                </StyledHeader>
+                <StyledSubHeader>THE DEAL</StyledSubHeader>
+                <StyledText>
                     The deck is divided evenly, with each player receiving 26
                     cards, face down.
-                </Typography>
-                <Typography variant="h6">THE PLAY</Typography>
-                <Typography variant="body1">
+                </StyledText>
+                <StyledSubHeader>THE PLAY</StyledSubHeader>
+                <StyledText>
                     Each player turns up a card and the player with the higher
                     card takes both cards and puts them, face down, on his
                     stack. If the cards are the same rank, it is War. Each
@@ -62,11 +59,11 @@ export const RulesPanelComponent: React.FC = () => {
                     places another card face down and turns another card face
                     up. The player with the higher card takes all 10 cards, and
                     so on.
-                </Typography>
-                <Typography variant="h6">THE WINNER</Typography>
-                <Typography variant="body1">
+                </StyledText>
+                <StyledSubHeader>THE WINNER</StyledSubHeader>
+                <StyledText>
                     The game ends when one player has won all the cards.
-                </Typography>
+                </StyledText>
             </StyledExpansionPanelDetails>
         </StyledRulesExpansionPanel>
     )

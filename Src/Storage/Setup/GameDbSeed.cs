@@ -52,7 +52,7 @@
                 CardValue.Two => "\uD83C\uDCD2",
                 CardValue.Three => "\uD83C\uDCD3",
                 CardValue.Four => "\uD83C\uDCD4",
-                CardValue.Five => "\uD83C\uDCC5",
+                CardValue.Five => "\uD83C\uDCD5",
                 CardValue.Six => "\uD83C\uDCD6",
                 CardValue.Seven => "\uD83C\uDCD7",
                 CardValue.Eight => "\uD83C\uDCD8",
@@ -60,9 +60,9 @@
                 CardValue.Ten => "\uD83C\uDCDA",
                 CardValue.Jack => "\uD83C\uDCDB",
                 CardValue.Queen => "\uD83C\uDCDD",
-                CardValue.King => "\uD83C\uDCDC",
+                CardValue.King => "\uD83C\uDCDE",
                 CardValue.Ace => "\uD83C\uDCD1",
-                CardValue.Joker => "\uD83C\uDCBF",
+                CardValue.Joker => "\uD83C\uDCDF",
                 _ => string.Empty,
             };
 
@@ -82,7 +82,7 @@
                 CardValue.Queen => "\uD83C\uDCBD",
                 CardValue.King => "\uD83C\uDCBE",
                 CardValue.Ace => "\uD83C\uDCB1",
-                CardValue.Joker => "\uD83C\uDCBF",
+                CardValue.Joker => "\uD83C\uDCDF",
                 _ => string.Empty,
             };
 
@@ -102,7 +102,7 @@
                 CardValue.Queen => "\uD83C\uDCAD",
                 CardValue.King => "\uD83C\uDCAE",
                 CardValue.Ace => "\uD83C\uDCA1",
-                CardValue.Joker => "\uD83C\uDCBF",
+                CardValue.Joker => "\uD83C\uDCDF",
                 _ => string.Empty,
             };
 
@@ -120,9 +120,9 @@
                 CardValue.Ten => "\uD83C\uDCCA",
                 CardValue.Jack => "\uD83C\uDCCB",
                 CardValue.Queen => "\uD83C\uDCCD",
-                CardValue.King => "\uD83C\uDCCB",
+                CardValue.King => "\uD83C\uDCCE",
                 CardValue.Ace => "\uD83C\uDCC1",
-                CardValue.Joker => "\uD83C\uDCBF",
+                CardValue.Joker => "\uD83C\uDCDF",
                 _ => string.Empty,
             };
     }

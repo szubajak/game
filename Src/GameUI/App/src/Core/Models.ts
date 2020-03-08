@@ -34,7 +34,6 @@ export interface GameBoard {
     whiteCards: Array<GameCard>
     blackCards: Array<GameCard>
     infoMessage: string
-    someMethod: () => void
 }
 
 export interface CardsBattle {
